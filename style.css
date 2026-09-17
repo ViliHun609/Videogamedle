@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+:root {
+  /* Base surface */
+  --color-bg: #0b0d10;
+  --color-bg-glow: #10151a;
+
+  /* Glass panel */
+  --color-panel: rgba(255, 255, 255, 0.035);
+  --color-panel-strong: rgba(255, 255, 255, 0.055);
+  --color-border: rgba(255, 255, 255, 0.09);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Text */
+  --color-text: #e9edee;
+  --color-text-dim: #8c959b;
+  --color-text-faint: #5c656b;
+
+  /* Accents */
+  --color-accent: #7fd8c4;       /* mint-teal — primary interactive accent */
+  --color-accent-dim: #4f8f81;
+  --color-accent-2: #e8a15a;     /* warm amber — status / "played" */
+  --color-danger: #d97a6c;
+
+  --radius-panel: 18px;
+  --radius-card: 12px;
+  --radius-pill: 999px;
+
+  --font-display: 'Chakra Petch', 'Space Grotesk', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(circle at 18% 12%, rgba(127, 216, 196, 0.07), transparent 45%),
+    radial-gradient(circle at 85% 88%, rgba(232, 161, 90, 0.05), transparent 40%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glass panel base — "átlátszó sötét" interface surface */
+.glass-panel {
+  background: var(--color-panel);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-panel);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.glass-card {
+  background: var(--color-panel-strong);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  transition: border-color 150ms ease, background-color 150ms ease;
+}
+
+.glass-card:hover,
+.glass-card:focus-within {
+  border-color: var(--color-border-strong);
+  background: rgba(255, 255, 255, 0.075);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-dim {
+  color: var(--color-text-dim);
+}
+
+.text-faint {
+  color: var(--color-text-faint);
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.accent-2 {
+  color: var(--color-accent-2);
+}
+
+.status-pill {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+  white-space: nowrap;
+}
+
+.status-pill.is-played {
+  color: var(--color-accent-2);
+  border-color: rgba(232, 161, 90, 0.35);
+  background: rgba(232, 161, 90, 0.08);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-dim);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 150ms ease, color 150ms ease;
+}
+
+.icon-btn:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+}
+
+.avatar-ring {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-dim);
+}
+
+/* thin custom scrollbar for the mode list */
+.mode-list::-webkit-scrollbar {
+  width: 6px;
+}
+.mode-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+.mode-list::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: var(--radius-pill);
+}
