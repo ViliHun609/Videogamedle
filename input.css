@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 :root {
   /* Base surface */
@@ -17,17 +18,17 @@
   --color-text-faint: #5c656b;
 
   /* Accents */
-  --color-accent: #7fd8c4;       /* mint-teal — primary interactive accent */
+  --color-accent: #7fd8c4;   
   --color-accent-dim: #4f8f81;
-  --color-accent-2: #e8a15a;     /* warm amber — status / "played" */
+  --color-accent-2: #e8a15a;     
   --color-danger: #d97a6c;
 
   --radius-panel: 18px;
   --radius-card: 12px;
   --radius-pill: 999px;
 
-  --font-display: 'Chakra Petch', 'Space Grotesk', sans-serif;
-  --font-body: 'Space Grotesk', sans-serif;
+  --font-display: 'Inter', 'Space Grotesk', sans-serif;
+  --font-body: "Inter", sans-serif;
 }
 
 * {
@@ -43,7 +44,7 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   background-color: var(--color-bg);
-  background-image: url(./test.jpg);
+  /*background-image: url(./test.jpg);*/
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -147,4 +148,31 @@ body {
 .mode-list::-webkit-scrollbar-thumb {
   background: var(--color-border-strong);
   border-radius: var(--radius-pill);
+}
+
+.button-icon-arrow-v2 {
+  height: 2vw;
+  transition: all 0.40s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+  right: -2vw;
+  transform-origin: left;
+}
+a:hover .button-icon-arrow-v2 {
+  transform: translateX(+35%);
+}
+
+img {
+  transition: all .3s ease-in-out;
+}
+img:hover {
+  border-radius: 18px;
+  transform: scale(1.1);
+}
+
+.type-card {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.type-card:hover {
+  transform: translateY(-4%);
 }
