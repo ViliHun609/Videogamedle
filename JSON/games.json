@@ -1,0 +1,1091 @@
+{
+  "games": [
+    {
+      "id": "rainbow-six-siege",
+      "name": "Rainbow Six Siege",
+      "releaseYear": 2015,
+      "developer": "Ubisoft Montreal",
+      "publisher": "Ubisoft",
+      "genre": [
+        "Tactical Shooter",
+        "FPS"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/rainbow-six-siege/preview.jpg",
+        "gameplay": "/assets/games/rainbow-six-siege/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "satisfactory",
+      "name": "Satisfactory",
+      "releaseYear": 2024,
+      "developer": "Coffee Stain Studios",
+      "publisher": "Coffee Stain Publishing",
+      "genre": [
+        "Factory Building",
+        "Survival"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/satisfactory/preview.jpg",
+        "gameplay": "/assets/games/satisfactory/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "euro-truck-simulator-2",
+      "name": "Euro Truck Simulator 2",
+      "releaseYear": 2012,
+      "developer": "SCS Software",
+      "publisher": "SCS Software",
+      "genre": [
+        "Simulation"
+      ],
+      "platform": [
+        "PC"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/euro-truck-simulator-2/preview.jpg",
+        "gameplay": "/assets/games/euro-truck-simulator-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "beamng-drive",
+      "name": "BeamNG.drive",
+      "releaseYear": 2015,
+      "developer": "BeamNG GmbH",
+      "publisher": "BeamNG GmbH",
+      "genre": [
+        "Simulation",
+        "Sandbox"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/beamng-drive/preview.jpg",
+        "gameplay": "/assets/games/beamng-drive/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "terraria",
+      "name": "Terraria",
+      "releaseYear": 2011,
+      "developer": "Re-Logic",
+      "publisher": "Re-Logic",
+      "genre": [
+        "Sandbox",
+        "Action-Adventure"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "macOS"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/terraria/preview.jpg",
+        "gameplay": "/assets/games/terraria/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "counter-strike-2",
+      "name": "Counter-Strike 2",
+      "releaseYear": 2023,
+      "developer": "Valve",
+      "publisher": "Valve",
+      "genre": [
+        "Tactical Shooter",
+        "FPS"
+      ],
+      "platform": [
+        "PC"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/counter-strike-2/preview.jpg",
+        "gameplay": "/assets/games/counter-strike-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-4-remake",
+      "name": "Resident Evil 4",
+      "releaseYear": 2023,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "macOS"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/resident-evil-4-remake/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-4-remake/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "sons-of-the-forest",
+      "name": "Sons of the Forest",
+      "releaseYear": 2024,
+      "developer": "Endnight Games",
+      "publisher": "Newnight",
+      "genre": [
+        "Survival Horror",
+        "Open World"
+      ],
+      "platform": [
+        "PC"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/sons-of-the-forest/preview.jpg",
+        "gameplay": "/assets/games/sons-of-the-forest/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-requiem",
+      "name": "Resident Evil Requiem",
+      "releaseYear": 2026,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/resident-evil-requiem/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-requiem/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-2-remake",
+      "name": "Resident Evil 2",
+      "releaseYear": 2019,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/resident-evil-2-remake/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-2-remake/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "war-thunder",
+      "name": "War Thunder",
+      "releaseYear": 2012,
+      "developer": "Gaijin Entertainment",
+      "publisher": "Gaijin Entertainment",
+      "genre": [
+        "Vehicular Combat",
+        "Simulation"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/war-thunder/preview.jpg",
+        "gameplay": "/assets/games/war-thunder/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "onimusha-way-of-the-sword",
+      "name": "Onimusha: Way of the Sword",
+      "releaseYear": 2026,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Action",
+        "Hack and Slash"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/onimusha-way-of-the-sword/preview.jpg",
+        "gameplay": "/assets/games/onimusha-way-of-the-sword/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "le-mans-ultimate",
+      "name": "Le Mans Ultimate",
+      "releaseYear": 2024,
+      "developer": "Studio 397",
+      "publisher": "Studio 397",
+      "genre": [
+        "Racing",
+        "Simulation"
+      ],
+      "platform": [
+        "PC"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/le-mans-ultimate/preview.jpg",
+        "gameplay": "/assets/games/le-mans-ultimate/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "peak",
+      "name": "PEAK",
+      "releaseYear": 2025,
+      "developer": "Aggro Crab, Landfall",
+      "publisher": "Aggro Crab, Landfall",
+      "genre": [
+        "Co-op Survival",
+        "Climbing"
+      ],
+      "platform": [
+        "PC"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/peak/preview.jpg",
+        "gameplay": "/assets/games/peak/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "assetto-corsa",
+      "name": "Assetto Corsa",
+      "releaseYear": 2014,
+      "developer": "Kunos Simulazioni",
+      "publisher": "505 Games",
+      "genre": [
+        "Racing",
+        "Simulation"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/assetto-corsa/preview.jpg",
+        "gameplay": "/assets/games/assetto-corsa/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-village",
+      "name": "Resident Evil Village",
+      "releaseYear": 2021,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/resident-evil-village/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-village/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-remake-hd",
+      "name": "Resident Evil",
+      "releaseYear": 2015,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/resident-evil-remake/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-remake/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "tlou-part-2-remastered",
+      "name": "The Last of Us Part II Remastered",
+      "releaseYear": 2024,
+      "developer": "Naughty Dog",
+      "publisher": "Sony Interactive Entertainment",
+      "genre": [
+        "Action-Adventure",
+        "Survival Horror"
+      ],
+      "platform": [
+        "PlayStation",
+        "PC"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/tlou-part-2-remastered/preview.jpg",
+        "gameplay": "/assets/games/tlou-part-2-remastered/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-5",
+      "name": "Resident Evil 5",
+      "releaseYear": 2009,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/resident-evil-5/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-5/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-revelations-2",
+      "name": "Resident Evil Revelations 2",
+      "releaseYear": 2015,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/resident-evil-revelations-2/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-revelations-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "subnautica",
+      "name": "Subnautica",
+      "releaseYear": 2018,
+      "developer": "Unknown Worlds Entertainment",
+      "publisher": "Unknown Worlds Entertainment",
+      "genre": [
+        "Survival",
+        "Adventure"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/subnautica/preview.jpg",
+        "gameplay": "/assets/games/subnautica/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "subnautica-2",
+      "name": "Subnautica 2",
+      "releaseYear": 2026,
+      "developer": "Unknown Worlds Entertainment",
+      "publisher": "Unknown Worlds Entertainment",
+      "genre": [
+        "Survival",
+        "Adventure"
+      ],
+      "platform": [
+        "PC",
+        "Xbox"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/subnautica-2/preview.jpg",
+        "gameplay": "/assets/games/subnautica-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "half-life-2",
+      "name": "Half-Life 2",
+      "releaseYear": 2004,
+      "developer": "Valve",
+      "publisher": "Valve",
+      "genre": [
+        "FPS",
+        "Action-Adventure"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "macOS"
+      ],
+      "difficulty": 3,
+      "images": {
+        "preview": "/assets/games/half-life-2/preview.jpg",
+        "gameplay": "/assets/games/half-life-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "tlou-part-1-remake",
+      "name": "The Last of Us Part I",
+      "releaseYear": 2022,
+      "developer": "Naughty Dog",
+      "publisher": "Sony Interactive Entertainment",
+      "genre": [
+        "Action-Adventure",
+        "Survival Horror"
+      ],
+      "platform": [
+        "PlayStation",
+        "PC"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/tlou-part-1-remake/preview.jpg",
+        "gameplay": "/assets/games/tlou-part-1-remake/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "assetto-corsa-evo",
+      "name": "Assetto Corsa EVO",
+      "releaseYear": 2025,
+      "developer": "KUNOS Simulazioni",
+      "publisher": "505 Games",
+      "genre": [
+        "Racing",
+        "Simulation"
+      ],
+      "platform": [
+        "PC"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/assetto-corsa-evo/preview.jpg",
+        "gameplay": "/assets/games/assetto-corsa-evo/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "portal",
+      "name": "Portal",
+      "releaseYear": 2007,
+      "developer": "Valve",
+      "publisher": "Valve",
+      "genre": [
+        "Puzzle-Platformer"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "macOS"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/portal/preview.jpg",
+        "gameplay": "/assets/games/portal/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "portal-2",
+      "name": "Portal 2",
+      "releaseYear": 2011,
+      "developer": "Valve",
+      "publisher": "Valve",
+      "genre": [
+        "Puzzle-Platformer"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "macOS"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/portal-2/preview.jpg",
+        "gameplay": "/assets/games/portal-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-4-og",
+      "name": "Resident Evil 4",
+      "releaseYear": 2005,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/resident-evil-4-og/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-4-og/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-6",
+      "name": "Resident Evil 6",
+      "releaseYear": 2012,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/resident-evil-6/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-6/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-zero-hd",
+      "name": "Resident Evil Zero",
+      "releaseYear": 2016,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/resident-evil-zero/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-zero/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-revelations",
+      "name": "Resident Evil Revelations",
+      "releaseYear": 2012,
+      "developer": "Capcom, Tose",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/resident-evil-revelations/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-revelations/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-3-og",
+      "name": "Resident Evil 3: Nemesis",
+      "releaseYear": 1999,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Nintendo"
+      ],
+      "difficulty": 3,
+      "images": {
+        "preview": "/assets/games/resident-evil-3-og/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-3-og/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "resident-evil-7",
+      "name": "Resident Evil 7: Biohazard",
+      "releaseYear": 2017,
+      "developer": "Capcom",
+      "publisher": "Capcom",
+      "genre": [
+        "Survival Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "macOS"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/resident-evil-7/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-7/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "the-forest",
+      "name": "The Forest",
+      "releaseYear": 2018,
+      "developer": "Endnight Games",
+      "publisher": "Endnight Games",
+      "genre": [
+        "Survival Horror",
+        "Open World"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/the-forest/preview.jpg",
+        "gameplay": "/assets/games/the-forest/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "half-life",
+      "name": "Half-Life",
+      "releaseYear": 1998,
+      "developer": "Valve",
+      "publisher": "Sierra Studios",
+      "genre": [
+        "FPS"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "macOS"
+      ],
+      "difficulty": 3,
+      "images": {
+        "preview": "/assets/games/half-life/preview.jpg",
+        "gameplay": "/assets/games/half-life/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "god-of-war-2018",
+      "name": "God of War",
+      "releaseYear": 2018,
+      "developer": "Santa Monica Studio",
+      "publisher": "Sony Interactive Entertainment",
+      "genre": [
+        "Action-Adventure",
+        "Hack and Slash"
+      ],
+      "platform": [
+        "PlayStation",
+        "PC"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/god-of-war-2018/preview.jpg",
+        "gameplay": "/assets/games/god-of-war-2018/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "snowrunner",
+      "name": "SnowRunner",
+      "releaseYear": 2020,
+      "developer": "Saber Interactive",
+      "publisher": "Focus Entertainment",
+      "genre": [
+        "Simulation",
+        "Off-road"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/snowrunner/preview.jpg",
+        "gameplay": "/assets/games/snowrunner/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "farming-simulator-25",
+      "name": "Farming Simulator 25",
+      "releaseYear": 2024,
+      "developer": "GIANTS Software",
+      "publisher": "GIANTS Software",
+      "genre": [
+        "Simulation",
+        "Farming simulation"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "macOS"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/farming-simulator-25/preview.jpg",
+        "gameplay": "/assets/games/farming-simulator-25/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "subnautica-below-zero",
+      "name": "Subnautica: Below Zero",
+      "releaseYear": 2021,
+      "developer": "Unknown Worlds Entertainment",
+      "publisher": "Unknown Worlds Entertainment",
+      "genre": [
+        "Survival",
+        "Adventure"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/subnautica-below-zero/preview.jpg",
+        "gameplay": "/assets/games/subnautica-below-zero/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "garrys-mod",
+      "name": "Garry's Mod",
+      "releaseYear": 2006,
+      "developer": "Facepunch Studios",
+      "publisher": "Valve",
+      "genre": [
+        "Sandbox"
+      ],
+      "platform": [
+        "PC",
+        "macOS"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/garrys-mod/preview.jpg",
+        "gameplay": "/assets/games/garrys-mod/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "left-4-dead-2",
+      "name": "Left 4 Dead 2",
+      "releaseYear": 2009,
+      "developer": "Valve",
+      "publisher": "Valve",
+      "genre": [
+        "FPS",
+        "Co-op Survival"
+      ],
+      "platform": [
+        "PC",
+        "macOS"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/left-4-dead-2/preview.jpg",
+        "gameplay": "/assets/games/left-4-dead-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "dead-by-daylight",
+      "name": "Dead by Daylight",
+      "releaseYear": 2016,
+      "developer": "Behaviour Interactive",
+      "publisher": "Behaviour Interactive",
+      "genre": [
+        "Survival Horror",
+        "Multiplayer"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/dead-by-daylight/preview.jpg",
+        "gameplay": "/assets/games/dead-by-daylight/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "gta-5",
+      "name": "Grand Theft Auto V",
+      "releaseYear": 2013,
+      "developer": "Rockstar North",
+      "publisher": "Rockstar Games",
+      "genre": [
+        "Action-Adventure",
+        "Open World"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/gta-5/preview.jpg",
+        "gameplay": "/assets/games/gta-5/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "titanfall-2",
+      "name": "Titanfall 2",
+      "releaseYear": 2016,
+      "developer": "Respawn Entertainment",
+      "publisher": "Electronic Arts",
+      "genre": [
+        "FPS"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/titanfall-2/preview.jpg",
+        "gameplay": "/assets/games/titanfall-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "silent-hill-2-remake",
+      "name": "Silent Hill 2",
+      "releaseYear": 2024,
+      "developer": "Bloober Team",
+      "publisher": "Konami Digital Entertainment",
+      "genre": [
+        "Survival Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/silent-hill-2-remake/preview.jpg",
+        "gameplay": "/assets/games/silent-hill-2-remake/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "silent-hill-f",
+      "name": "Silent Hill f",
+      "releaseYear": 2025,
+      "developer": "NeoBards Entertainment",
+      "publisher": "Konami Digital Entertainment",
+      "genre": [
+        "Survival Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/silent-hill-f/preview.jpg",
+        "gameplay": "/assets/games/silent-hill-f/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "silent-hill-townfall",
+      "name": "Silent Hill: Townfall",
+      "releaseYear": 2026,
+      "developer": "Screen Burn Interactive",
+      "publisher": "Konami Digital Entertainment, Annapurna Interactive",
+      "genre": [
+        "Survival Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/silent-hill-townfall/preview.jpg",
+        "gameplay": "/assets/games/silent-hill-townfall/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "",
+      "name": "",
+      "releaseYear": null,
+      "developer": "",
+      "publisher": "",
+      "genre": [],
+      "platform": [],
+      "difficulty": null,
+      "images": {
+        "preview": "",
+        "gameplay": ""
+      },
+      "audio": null,
+      "funFacts": []
+    }
+  ]
+}
