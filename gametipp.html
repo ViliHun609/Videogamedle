@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Felugró ablak - Tailwind</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="input.css" />
+<style>
+  :root { box-sizing: border-box; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+  .modal-backdrop { animation: fadeIn 0.2s ease-out; }
+  .modal-box { animation: scaleIn 0.25s ease-out; }
+</style>
+</head>
+<body class="min-h-screen bg-slate-100 flex items-center justify-center p-6">
+
+  <div class="text-center">
+    <h1 class="text-2xl font-semibold text-slate-800 mb-2">Az oldal tartalma</h1>
+    <p class="text-slate-500">A felugró ablak automatikusan megjelenik betöltéskor.</p>
+    <button id="reopenBtn" class="mt-4 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition hidden">
+      Ablak újranyitása
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div id="modalBackdrop" class="modal-backdrop fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
+    <div class="modal-box bg-white rounded-2xl shadow-xl max-w-2xl w-full p-8 relative">
+      <h2 class="text-3xl font-bold text-slate-800 mb-3">Üdvözlünk! 👋</h2>
+      <p class="text-slate-600 text-lg mb-6">
+        Válassz az alábbi lehetőségek közül:
+      </p>
+
+      <div class="grid grid-cols-3 gap-4 mb-8">
+        <button type="button" data-choice="1"
+          class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
+          <span class="choice-title font-semibold text-slate-700 text-base mb-2">Placeholder 1</span>
+          <span class="choice-desc text-sm text-slate-400 leading-snug">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+        </button>
+        <button type="button" data-choice="2"
+          class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
+          <span class="choice-title font-semibold text-slate-700 text-base mb-2">Placeholder 2</span>
+          <span class="choice-desc text-sm text-slate-400 leading-snug">Sed do eiusmod tempor incididunt ut labore et dolore.</span>
+        </button>
+        <button type="button" data-choice="3"
+          class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
+          <span class="choice-title font-semibold text-slate-700 text-base mb-2">Placeholder 3</span>
+          <span class="choice-desc text-sm text-slate-400 leading-snug">Ut enim ad minim veniam, quis nostrud exercitation.</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const backdrop = document.getElementById('modalBackdrop');
+    const reopenBtn = document.getElementById('reopenBtn');
+
+    function closeModal() {
+      backdrop.classList.add('hidden');
+      reopenBtn.classList.remove('hidden');
+    }
+    function openModal() {
+      backdrop.classList.remove('hidden');
+      reopenBtn.classList.add('hidden');
+    }
+
+    document.getElementById('closeBtn')?.addEventListener('click', closeModal);
+    reopenBtn.addEventListener('click', openModal);
+
+    // Kockák kiválasztása - a választás egyben bezárja a modalt
+    let selectedChoice = null;
+    const choiceBoxes = document.querySelectorAll('.choice-box');
+    choiceBoxes.forEach(box => {
+      box.addEventListener('click', () => {
+        choiceBoxes.forEach(b => {
+          b.classList.remove('border-slate-800', 'bg-slate-50');
+          b.classList.add('border-slate-200');
+        });
+        box.classList.remove('border-slate-200');
+        box.classList.add('border-slate-800', 'bg-slate-50');
+        selectedChoice = box.dataset.choice; // "1", "2" vagy "3"
+        closeModal();
+        fetchGamesByValue(selectedChoice);
+      });
+    });
+
+    // games.json lekérése és szűrés a kiválasztott érték alapján
+    async function fetchGamesByValue(value) {
+      try {
+        const response = await fetch('games.json');
+        if (!response.ok) {
+          throw new Error(`HTTP hiba: ${response.status}`);
+        }
+        const data = await response.json();
+
+        // Feltételezve, hogy a data egy tömb, és minden elemnek van "value" mezője
+        const matches = data.filter(item => String(item.value) === String(value));
+
+        console.log(`Sikeres fetch! Kiválasztott érték: ${value}`);
+        console.log('Találatok:', matches);
+      } catch (error) {
+        console.log('A fetch nem sikerült:', error.message);
+      }
+    }
+  </script>
+
+</body>
+</html>
