@@ -88,17 +88,17 @@
     // games.json lekérése és szűrés a kiválasztott érték alapján
     async function fetchGamesByValue(value) {
       try {
-        const response = await fetch('games.json');
+        const response = await fetch('./JSON/games.json');
         if (!response.ok) {
           throw new Error(`HTTP hiba: ${response.status}`);
         }
         const data = await response.json();
 
-        // Feltételezve, hogy a data egy tömb, és minden elemnek van "value" mezője
-        const matches = data.filter(item => String(item.value) === String(value));
+        const matches = data.games.filter(item => String(item.difficulty) <= String(value));
 
         console.log(`Sikeres fetch! Kiválasztott érték: ${value}`);
         console.log('Találatok:', matches);
+        console.log(data.games);
       } catch (error) {
         console.log('A fetch nem sikerült:', error.message);
       }

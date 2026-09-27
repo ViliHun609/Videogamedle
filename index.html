@@ -7,66 +7,71 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="input.css" />
 </head>
-<body class="min-h-screen">
+<body class="h-screen flex flex-col">
 
-<header class="bg-blue-900">
-<nav class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-  <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <img src="https://flowbite.com/docs/images/logo.svg" class="h-7" alt="Flowbite Logo" />
-      <span class="self-center text-xl text-heading font-semibold whitespace-nowrap">Videogamedle</span>
-  </a>
-  <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-      <button type="button" class="flex text-sm bg-neutral-primary rounded-full md:me-0 focus:ring-4 focus:ring-neutral-tertiary" id="user-menu-button" aria-expanded="false">
-        <span class="sr-only">Open user menu</span>
-        <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="user photo">
-      </button>
-      <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-user" aria-expanded="false">
-        <span class="sr-only">Open main menu</span>
-        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
-      </button>
-  </div>
-  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
-      <li>
-        <a href="#" class="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Home</a>
-      </li>
-      <li>
-        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">About</a>
-      </li>
-      <li>
-        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Credits</a>
-      </li>
-      <li>
-        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Contact</a>
-      </li>
-    </ul>
-  </div>
-  </div>
-</nav>
+<header class="shrink-0">
+    <nav class="bg-[var(--color-bg)] w-full z-20 border-b border-[var(--ink-wash-border)]">
+        <div class="max-w-screen grid grid-cols-3 items-center mx-auto p-4">
+
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="./images/logo/logo.png" class="h-7" alt="Videogamedle Logo" />
+                <span class="self-center text-xl text-heading font-semibold whitespace-nowrap">Videogamedle</span>
+            </a>
+
+            <div class="justify-self-center hidden w-full md:flex md:w-auto justify-center" id="navbar-user">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
+                    <li>
+                        <a href="#" class="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">home</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">About</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ViliHun609/Videogamedle" target="_blank" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">GitHub repo</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex items-center justify-self-end md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button type="button" class="flex text-sm bg-neutral-primary rounded-full md:me-0 focus:ring-4 focus:ring-neutral-tertiary" id="user-menu-button" aria-expanded="false">
+                    <span class="sr-only">Open user menu</span>
+                    <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="user photo">
+                </button>
+                <a href="">
+                    <img src="" alt="">
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
 
 </header>
 
-<main class="w-screen h-screen pt-40 text-center bg-red-800">
+<main class="w-screen text-center h-screen mt-8" style="">
 
-  <h1 class="pb-20 text-4xl">Videogamedle</h1>
+  <h1 class="pb-2 text-5xl uppercase">Videogamedle</h1>
+  <h2 class="pb-20">Test your knowledge of Video games</h2>
 
-  <div class="flex items-center justify-center bg-purple-600">
+  <div class="flex items-center justify-center">
 
-    <div class="w-3/12 bg-blue-800">
+    <div class="w-3/12">
 
       <div class="grid grid-flow-col grid-rows-4 gap-6">
 
-          <a href="" class="bg-yellow-600 flex p-2 rounded-md items-center justify-between type-card">
-          <img src="./test.jpg" alt="" class="w-20 aspect-square flex-initial rounded-md">
+          <a href="./gametipp.html" class="flex p-2 rounded-md items-center justify-between type-card ink-wash border-2">
+          <img src="./assets/games/satisfactory/preview.jpg" alt="" class="w-20 aspect-square flex-initial rounded-md">
 
-          <div class="ml-4 flex-1 text-left text-lg">
-            <h3 class="w-fit inline pr-4">Gamedle</h3>
+          <div class="ml-4 flex-1 text-left text-lg font-secondary">
+            <h3 class="w-fit inline pr-4 uppercase font-anton">Gamedle</h3>
             <span class="text-base">badge</span> <br>
             <span>leírás</span>
           </div>
-          <div class="pr-8">
-              <svg class="w-6 h-6 button-icon-arrow-v2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <div class="pr-8 shrink-0">
+              <svg class="w-6 h-6 shrink-0 button-icon-arrow-v2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                 <path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
               </svg>
           </div>
@@ -83,11 +88,11 @@
 
 </main>
 
-<footer class="border-t mt-12 py-4 text-center text-xs bg-white">
-<p class="py-4 text-sm">Take a look at the project on github
+<footer class="py-4 text-center text-xs w-full flex items-center justify-center h-fit">
+<p class="text-sm tracking-wide w-1/6 border-2 rounded-md h-fit content-center p-4 ink-wash">Take a look at the project on GitHub
 	<a class="underline font-bold" href="https://github.com/ViliHun609/Videogamedle" target="_blank">
 	here
-	<svg class="footer-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"/></svg>
+	<svg class="footer-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"/></svg>
 	</a>
 </p>
 </footer>
