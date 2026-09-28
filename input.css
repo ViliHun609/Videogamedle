@@ -114,7 +114,7 @@ a:hover .button-icon-arrow-v2 {
 img {
   transition: all .3s ease-in-out;
 }
-img:hover {
+a img:hover {
   border-radius: 18px;
   transform: scale(1.1);
 }

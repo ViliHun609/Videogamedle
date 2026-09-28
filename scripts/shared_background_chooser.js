@@ -8,7 +8,7 @@ function random(min, max) {
 
 
 const pick = random(1, TOTAL_IMAGES)
-console.log(random(1, TOTAL_IMAGES))
+//console.log(random(1, TOTAL_IMAGES))
 
 const d = new Date();
 const year = d.getFullYear();
@@ -16,14 +16,14 @@ const month = d.getMonth() + 1;
 const day = d.getDate();
 
 const fulldate = `${year}` + `${month}` + `${day}`;
-console.log(fulldate)
+//console.log(fulldate)
 
 const seed = fulldate % TOTAL_IMAGES
 if (seed == 0) {
     const seed = seed + 1
 }
 
-console.log(seed)
+//console.log(seed)
 
 
 // set image based on number 
