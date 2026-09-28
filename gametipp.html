@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Felugró ablak - Tailwind</title>
+<title>Videogamedle</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="input.css" />
 <style>
@@ -17,36 +17,36 @@
 <body class="min-h-screen bg-slate-100 flex items-center justify-center p-6">
 
   <div class="text-center">
-    <h1 class="text-2xl font-semibold text-slate-800 mb-2">Az oldal tartalma</h1>
-    <p class="text-slate-500">A felugró ablak automatikusan megjelenik betöltéskor.</p>
+    <h1 class="text-2xl font-semibold text-slate-800 mb-2">Imagine a searchbar here</h1>
+    <p class="text-slate-500">Pop-up window test</p>
     <button id="reopenBtn" class="mt-4 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition hidden">
-      Ablak újranyitása
+      Re-open pop-up
     </button>
   </div>
 
   <!-- Modal -->
-  <div id="modalBackdrop" class="modal-backdrop fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-    <div class="modal-box bg-white rounded-2xl shadow-xl max-w-2xl w-full p-8 relative">
-      <h2 class="text-3xl font-bold text-slate-800 mb-3">Üdvözlünk! 👋</h2>
+  <div id="modalBackdrop" class="modal-backdrop fixed inset-0 bg-slate-900/50 flex items-center justify-center p-4 z-50">
+    <div class="modal-box bg-slate-900 rounded-2xl shadow-xl max-w-2xl w-full p-8 relative">
+      <h2 class="text-3xl font-bold text-slate-200 mb-3">Mode selected</h2>
       <p class="text-slate-600 text-lg mb-6">
-        Válassz az alábbi lehetőségek közül:
+        Choose a difficulty setting
       </p>
 
       <div class="grid grid-cols-3 gap-4 mb-8">
         <button type="button" data-choice="1"
           class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
-          <span class="choice-title font-semibold text-slate-700 text-base mb-2">Placeholder 1</span>
-          <span class="choice-desc text-sm text-slate-400 leading-snug">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+          <span class="choice-title font-semibold text-slate-500 text-base mb-2">Easy</span>
+          <span class="choice-desc text-sm text-slate-400 leading-snug">The games in this difficulty are games that have been released in recent years or are too popular to be forgotten.</span>
         </button>
         <button type="button" data-choice="2"
           class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
-          <span class="choice-title font-semibold text-slate-700 text-base mb-2">Placeholder 2</span>
-          <span class="choice-desc text-sm text-slate-400 leading-snug">Sed do eiusmod tempor incididunt ut labore et dolore.</span>
+          <span class="choice-title font-semibold text-slate-500 text-base mb-2">Medium</span>
+          <span class="choice-desc text-sm text-slate-400 leading-snug">In this difficulty, the game pool is expanded to games that are older and not as well-known. </span>
         </button>
         <button type="button" data-choice="3"
           class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
-          <span class="choice-title font-semibold text-slate-700 text-base mb-2">Placeholder 3</span>
-          <span class="choice-desc text-sm text-slate-400 leading-snug">Ut enim ad minim veniam, quis nostrud exercitation.</span>
+          <span class="choice-title font-semibold text-slate-500   text-base mb-2">Wildcard</span>
+          <span class="choice-desc text-sm text-slate-400 leading-snug">Do you think you've got what it takes? Think you've got the smallest of details down? Well, make sure to be prepared for anything...</span>
         </button>
       </div>
     </div>

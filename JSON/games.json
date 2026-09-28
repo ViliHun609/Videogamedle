@@ -1072,17 +1072,91 @@
       "funFacts": []
     },
     {
-      "id": "",
-      "name": "",
-      "releaseYear": null,
-      "developer": "",
-      "publisher": "",
-      "genre": [],
-      "platform": [],
-      "difficulty": null,
+      "id": "dying-light",
+      "name": "Dying Light",
+      "releaseYear": 2015,
+      "developer": "Techland",
+      "publisher": "Techland",
+      "genre": [
+        "Survival Horror",
+        "Action-Adventure"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 2,
       "images": {
-        "preview": "",
-        "gameplay": ""
+        "preview": "/assets/games/dying-light/preview.jpg",
+        "gameplay": "/assets/games/dying-light/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "dying-light-2",
+      "name": "Dying Light 2",
+      "releaseYear": 2022,
+      "developer": "Techland",
+      "publisher": "Techland",
+      "genre": [
+        "Survival Horror",
+        "Action-Adventure"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/dying-light-2/preview.jpg",
+        "gameplay": "/assets/games/dying-light-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "no-more-room-in-hell",
+      "name": "No More Room in Hell",
+      "releaseYear": 2011,
+      "developer": "Lever Games",
+      "publisher": "Lever Games",
+      "genre": [
+        "Survival Horror",
+        "FPS"
+      ],
+      "platform": [
+        "PC"
+      ],
+      "difficulty": 3,
+      "images": {
+        "preview": "/assets/games/no-more-room-in-hell/preview.jpg",
+        "gameplay": "/assets/games/no-more-room-in-hell/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "no-more-room-in-hell-2",
+      "name": "No More Room in Hell 2",
+      "releaseYear": 2026,
+      "developer": "Torn Banner Studios",
+      "publisher": "Torn Banner Studios",
+      "genre": [
+        "Survival Horror",
+        "FPS"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/no-more-room-in-hell-2/preview.jpg",
+        "gameplay": "/assets/games/no-more-room-in-hell-2/gameplay.jpg"
       },
       "audio": null,
       "funFacts": []
