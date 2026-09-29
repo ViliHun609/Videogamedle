@@ -14,14 +14,22 @@
   .modal-box { animation: scaleIn 0.25s ease-out; }
 </style>
 </head>
-<body class="min-h-screen bg-slate-100 flex items-center justify-center p-6">
+<body class="min-h-screen bg-slate-100 flex flex-col justify-end items-center p-6 relative">
 <script src="./scripts/shared_background_chooser.js"></script>
 
-  <div class="text-center">
-    <h1 class="text-2xl font-semibold text-slate-800 mb-2">Imagine a searchbar here</h1>
-    <p class="text-slate-500">Pop-up window test</p>
-    <button id="reopenBtn" class="mt-4 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition hidden">
-      Re-open pop-up
+  <h2 class="absolute top-6 left-1/2 -translate-x-1/2 text-2xl font-semibold text-slate-400 text-center">From what game is this image from?</h2>
+
+  <!--Számítások szerint majd ide jönnek a képek-->
+
+  <div class="text-center justify-end">
+    <div class="relative w-full">
+      <ul id="autocompleteList"
+        class="hidden absolute bottom-full left-0 mb-2 w-full max-h-48 overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-lg text-left z-10">
+      </ul>
+      <input id="guessInput" type="text" autocomplete="off" placeholder="Guess here..." class="w-full px-4 py-2 rounded-full focus:outline-none" style="color: black;">
+    </div>
+    <button class="mt-4 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700">
+      Guess
     </button>
   </div>
 
@@ -47,7 +55,7 @@
         <button type="button" data-choice="3"
           class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
           <span class="choice-title font-semibold text-slate-500   text-base mb-2">Wildcard</span>
-          <span class="choice-desc text-sm text-slate-400 leading-snug">Do you think you've got what it takes? Think you've got the smallest of details down? Well, make sure to be prepared for anything...</span>
+          <span class="choice-desc text-sm text-slate-400 leading-snug">Do you think you've got what it takes? Think you've got the smallest of details down? Well, you might get lucky...</span>
         </button>
       </div>
     </div>
@@ -55,19 +63,14 @@
 
   <script>
     const backdrop = document.getElementById('modalBackdrop');
-    const reopenBtn = document.getElementById('reopenBtn');
-
+    
     function closeModal() {
       backdrop.classList.add('hidden');
-      reopenBtn.classList.remove('hidden');
     }
     function openModal() {
       backdrop.classList.remove('hidden');
-      reopenBtn.classList.add('hidden');
     }
-
-    document.getElementById('closeBtn')?.addEventListener('click', closeModal);
-    reopenBtn.addEventListener('click', openModal);
+    
 
     // Kockák kiválasztása - a választás egyben bezárja a modalt
     let selectedChoice = null;
@@ -104,6 +107,77 @@
         console.log('A fetch nem sikerült:', error.message);
       }
     }
+
+    // ---- Autocomplete a kereső mezőhöz ----
+    const guessInput = document.getElementById('guessInput');
+    const autocompleteList = document.getElementById('autocompleteList');
+    let allGames = [];
+
+    // Játékadatok betöltése a games.json-ból
+    async function loadGameTitles() {
+      try {
+        const response = await fetch('./JSON/games.json');
+        if (!response.ok) throw new Error(`HTTP hiba: ${response.status}`);
+        const data = await response.json();
+        // A games.json-ban minden elemnek "name" (string) és "images.preview" mezője van
+        allGames = data.games
+          .filter(item => item.name)
+          .map(item => ({ title: item.name, image: (item.images && item.images.preview) || '' }));
+      } catch (error) {
+        console.log('Nem sikerült betölteni a játéklistát az autocomplete-hoz:', error.message);
+      }
+    }
+    loadGameTitles();
+
+    function renderSuggestions(matches) {
+      autocompleteList.innerHTML = '';
+      if (matches.length === 0) {
+        autocompleteList.classList.add('hidden');
+        return;
+      }
+      matches.forEach(game => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center gap-3 px-4 py-2 cursor-pointer hover:bg-slate-100 text-slate-700';
+
+        const img = document.createElement('img');
+        img.src = game.image;
+        img.alt = game.title;
+        img.className = 'w-10 h-10 object-cover rounded-md bg-slate-200 flex-shrink-0';
+        img.onerror = () => { img.style.visibility = 'hidden'; };
+
+        const span = document.createElement('span');
+        span.textContent = game.title;
+
+        li.appendChild(img);
+        li.appendChild(span);
+
+        li.addEventListener('click', () => {
+          guessInput.value = game.title;
+          autocompleteList.classList.add('hidden');
+        });
+        autocompleteList.appendChild(li);
+      });
+      autocompleteList.classList.remove('hidden');
+    }
+
+    guessInput.addEventListener('input', () => {
+      const query = guessInput.value.trim().toLowerCase();
+      if (query === '') {
+        autocompleteList.classList.add('hidden');
+        return;
+      }
+      const matches = allGames.filter(game =>
+        game.title.toLowerCase().includes(query)
+      );
+      renderSuggestions(matches);
+    });
+
+    // Lista elrejtése, ha máshova kattintanak
+    document.addEventListener('click', (e) => {
+      if (!guessInput.contains(e.target) && !autocompleteList.contains(e.target)) {
+        autocompleteList.classList.add('hidden');
+      }
+    });
   </script>
 
 </body>
