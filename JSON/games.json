@@ -136,7 +136,7 @@
     },
     {
       "id": "resident-evil-4-remake",
-      "name": "Resident Evil 4",
+      "name": "Resident Evil 4 Remake",
       "releaseYear": 2023,
       "developer": "Capcom",
       "publisher": "Capcom",
@@ -617,7 +617,7 @@
     },
     {
       "id": "resident-evil-4-og",
-      "name": "Resident Evil 4",
+      "name": "Resident Evil 4 Original",
       "releaseYear": 2005,
       "developer": "Capcom",
       "publisher": "Capcom",
@@ -1157,6 +1157,217 @@
       "images": {
         "preview": "/assets/games/no-more-room-in-hell-2/preview.jpg",
         "gameplay": "/assets/games/no-more-room-in-hell-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "payday-2",
+      "name": "Payday 2",
+      "releaseYear": 2013,
+      "developer": "Overkill Software",
+      "publisher": "Starbreeze Entertainment",
+      "genre": [
+        "FPS",
+        "Co-op Shooter",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "Nintendo",
+        "VR"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/payday-2/preview.jpg",
+        "gameplay": "/assets/games/payday-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "payday-3",
+      "name": "Payday 3",
+      "releaseYear": 2023,
+      "developer": "Starbreeze Studios",
+      "publisher": "Starbreeze Entertainment",
+      "genre": [
+        "FPS",
+        "Co-op Shooter",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/payday-3/preview.jpg",
+        "gameplay": "/assets/games/payday-3/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "hotline-miami",
+      "name": "Hotline Miami",
+      "releaseYear": 2012,
+      "developer": "Dennaton Games",
+      "publisher": "Devolver Digital",
+      "genre": [
+        "Top-down Shooter",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 3,
+      "images": {
+        "preview": "/assets/games/hotline-miami/preview.jpg",
+        "gameplay": "/assets/games/hotline-miami/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "hotline-miami-2",
+      "name": "Hotline Miami 2",
+      "releaseYear": 2016,
+      "developer": "Dennaton Games",
+      "publisher": "Devolver Digital",
+      "genre": [
+        "Top-down Shooter",
+        "Action"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 3,
+      "images": {
+        "preview": "/assets/games/hotline-miami-2/preview.jpg",
+        "gameplay": "/assets/games/hotline-miami-2/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "the-long-dark",
+      "name": "The Long Dark",
+      "releaseYear": 2014,
+      "developer": "Hinterland Studio",
+      "publisher": "Hinterland Studio",
+      "genre": [
+        "Survival",
+        "Adventure"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 2,
+      "images": {
+        "preview": "/assets/games/the-long-dark/preview.jpg",
+        "gameplay": "/assets/games/the-long-dark/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "total-chaos",
+      "name": "Total Chaos",
+      "releaseYear": 2026,
+      "developer": "Trigger Happy Interactive",
+      "publisher": "Apogee Entertainment",
+      "genre": [
+        "Survival Horror",
+        "Psychological Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox",
+        "VR"
+      ],
+      "difficulty": 3,
+      "images": {
+        "preview": "/assets/games/total-chaos/preview.jpg",
+        "gameplay": "/assets/games/total-chaos/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "dead-as-disco",
+      "name": "Dead as Disco",
+      "releaseYear": 2026,
+      "developer": "Brain Jar Games",
+      "publisher": "Brain Jar Games",
+      "genre": [
+        "Action",
+        "Beat 'em up",
+        "Rythm Game"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 3,
+      "images": {
+        "preview": "/assets/games/dead-as-disco/preview.jpg",
+        "gameplay": "/assets/games/dead-as-disco/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+    {
+      "id": "tormented-souls",
+      "name": "Tormented Souls",
+      "releaseYear": 2021,
+      "developer": "Dual Effect",
+      "publisher": "PQube",
+      "genre": [
+        "Survival Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 3,
+      "images": {
+        "preview": "/assets/games/tormented-souls/preview.jpg",
+        "gameplay": "/assets/games/tormented-souls/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+     {
+      "id": "tormented-souls-2",
+      "name": "Tormented Souls 2",
+      "releaseYear": 2025,
+      "developer": "Dual Effect",
+      "publisher": "PQube",
+      "genre": [
+        "Survival Horror"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 3,
+      "images": {
+        "preview": "/assets/games/tormented-souls-2/preview.jpg",
+        "gameplay": "/assets/games/tormented-souls-2/gameplay.jpg"
       },
       "audio": null,
       "funFacts": []
