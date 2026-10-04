@@ -14,23 +14,39 @@
   .modal-box { animation: scaleIn 0.25s ease-out; }
 </style>
 </head>
-<body class="min-h-screen bg-slate-100 flex flex-col justify-end items-center p-6 relative">
+<body class="min-h-screen bg-slate-100 flex flex-col justify-end items-center p-6 relative overflow-y-auto">
 <script src="./scripts/shared_background_chooser.js"></script>
 
   <h2 class="absolute top-6 left-1/2 -translate-x-1/2 text-2xl font-semibold text-slate-400 text-center">From what game is this image from?</h2>
 
-  <!--Számítások szerint majd ide jönnek a képek-->
+  <div class="flex-1 min-h-0 flex flex-col items-center justify-center w-full gap-4">
+    <img id="gameplayImage" class="hidden max-w-xl w-full max-h-[60vh] object-contain rounded-xl shadow-lg" alt="Gameplay kép">
+    <p id="resultMessage" class="hidden text-2xl font-bold text-green-600"></p>
+    <p id="invalidMessage" class="hidden text-lg font-semibold text-red-600">Nem érvényes játék</p>
+  </div>
 
-  <div class="text-center justify-end">
+  
+
+  <div class="text-center justify-end w-full max-w-3xl">
     <div class="relative w-full">
       <ul id="autocompleteList"
         class="hidden absolute bottom-full left-0 mb-2 w-full max-h-48 overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-lg text-left z-10">
       </ul>
       <input id="guessInput" type="text" autocomplete="off" placeholder="Guess here..." class="w-full px-4 py-2 rounded-full focus:outline-none" style="color: black;">
     </div>
-    <button class="mt-4 px-4 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700">
-      Guess
-    </button>
+  </div>
+
+  <!-- Helytelen tippek listája -->
+  <div id="guessHistory" class="hidden w-full max-w-3xl mt-6 mb-6">
+    <div class="grid grid-cols-6 gap-2 mb-2">
+      <div class="guess-box guess-box-header bg-slate-800 text-white rounded-lg px-3 py-2 text-sm font-semibold text-center">Name</div>
+      <div class="guess-box guess-box-header bg-slate-800 text-white rounded-lg px-3 py-2 text-sm font-semibold text-center">Release Year</div>
+      <div class="guess-box guess-box-header bg-slate-800 text-white rounded-lg px-3 py-2 text-sm font-semibold text-center">Developer</div>
+      <div class="guess-box guess-box-header bg-slate-800 text-white rounded-lg px-3 py-2 text-sm font-semibold text-center">Publisher</div>
+      <div class="guess-box guess-box-header bg-slate-800 text-white rounded-lg px-3 py-2 text-sm font-semibold text-center">Genre</div>
+      <div class="guess-box guess-box-header bg-slate-800 text-white rounded-lg px-3 py-2 text-sm font-semibold text-center">Platform</div>
+    </div>
+    <div id="guessHistoryBody" class="flex flex-col gap-2"></div>
   </div>
 
   <!-- Modal -->
@@ -72,6 +88,65 @@
     }
     
 
+    // ---- Determinisztikus, napi "véletlen" generátor ----
+    // Ugyanaznap mindenkinek ugyanaz a játék jön ki, másnap viszont más.
+    function hashString(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = (hash << 5) - hash + str.charCodeAt(i);
+        hash |= 0;
+      }
+      return hash;
+    }
+    function mulberry32(seed) {
+      return function () {
+        seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+        let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+    }
+    function getTodaySeed() {
+      const today = new Date().toISOString().slice(0, 10); // "ÉÉÉÉ-HH-NN"
+      return hashString(today);
+    }
+
+    // Napi játékválasztás nehézségenként, ismétlődés nélkül
+    let dailyGames = {}; // { "1": gameObj, "2": gameObj, "3": gameObj }
+
+    function pickDailyGames(allGamesData) {
+      const rng = mulberry32(getTodaySeed());
+      const usedIds = new Set();
+      const result = {};
+
+      [1, 2, 3].forEach(diff => {
+        let pool = allGamesData.filter(g => g.difficulty <= diff && !usedIds.has(g.id));
+        if (pool.length === 0) {
+          // ha elfogyna a választék, engedjük az ismétlődést, nehogy üres maradjon
+          pool = allGamesData.filter(g => g.difficulty <= diff);
+        }
+        const index = Math.floor(rng() * pool.length);
+        const chosen = pool[index];
+        result[diff] = chosen;
+        if (chosen) usedIds.add(chosen.id);
+      });
+
+      return result;
+    }
+
+    // Kiválasztott nehézséghez tartozó gameplay kép megjelenítése
+    const gameplayImage = document.getElementById('gameplayImage');
+    function showGameplayImage(value) {
+      const game = dailyGames[value];
+      if (!game || !game.images || !game.images.gameplay) {
+        gameplayImage.classList.add('hidden');
+        return;
+      }
+      gameplayImage.src = game.images.gameplay;
+      gameplayImage.alt = 'Gameplay kép';
+      gameplayImage.classList.remove('hidden');
+    }
+
     // Kockák kiválasztása - a választás egyben bezárja a modalt
     let selectedChoice = null;
     const choiceBoxes = document.querySelectorAll('.choice-box');
@@ -85,49 +160,36 @@
         box.classList.add('border-slate-800', 'bg-slate-50');
         selectedChoice = box.dataset.choice; // "1", "2" vagy "3"
         closeModal();
-        fetchGamesByValue(selectedChoice);
+        showGameplayImage(selectedChoice);
       });
     });
 
-    // games.json lekérése és szűrés a kiválasztott érték alapján
-    async function fetchGamesByValue(value) {
-      try {
-        const response = await fetch('./JSON/games.json');
-        if (!response.ok) {
-          throw new Error(`HTTP hiba: ${response.status}`);
-        }
-        const data = await response.json();
-
-        const matches = data.games.filter(item => String(item.difficulty) <= String(value));
-
-        console.log(`Sikeres fetch! Kiválasztott érték: ${value}`);
-        console.log('Találatok:', matches);
-        console.log(data.games);
-      } catch (error) {
-        console.log('A fetch nem sikerült:', error.message);
-      }
-    }
-
-    // ---- Autocomplete a kereső mezőhöz ----
+    // Autocomplete a kereső mezőhöz
     const guessInput = document.getElementById('guessInput');
     const autocompleteList = document.getElementById('autocompleteList');
     let allGames = [];
+    let allGamesFull = []; // teljes adatok a helytelen tippek listájához
 
-    // Játékadatok betöltése a games.json-ból
-    async function loadGameTitles() {
+    // games.json egyszeri betöltése - ebből épül fel az autocomplete lista, a napi játékválasztás ÉS a tipplista is
+    async function loadGames() {
       try {
         const response = await fetch('./JSON/games.json');
         if (!response.ok) throw new Error(`HTTP hiba: ${response.status}`);
         const data = await response.json();
-        // A games.json-ban minden elemnek "name" (string) és "images.preview" mezője van
+
+        allGamesFull = data.games;
+
         allGames = data.games
           .filter(item => item.name)
-          .map(item => ({ title: item.name, image: (item.images && item.images.preview) || '' }));
+          .map(item => ({ id: item.id, title: item.name, image: (item.images && item.images.preview) || '' }));
+
+        dailyGames = pickDailyGames(data.games);
+        console.log('Mai napi játékok nehézségenként:', dailyGames);
       } catch (error) {
-        console.log('Nem sikerült betölteni a játéklistát az autocomplete-hoz:', error.message);
+        console.log('Nem sikerült betölteni a games.json-t:', error.message);
       }
     }
-    loadGameTitles();
+    loadGames();
 
     function renderSuggestions(matches) {
       autocompleteList.innerHTML = '';
@@ -135,9 +197,10 @@
         autocompleteList.classList.add('hidden');
         return;
       }
-      matches.forEach(game => {
+      matches.forEach((game, index) => {
         const li = document.createElement('li');
-        li.className = 'flex items-center gap-3 px-4 py-2 cursor-pointer hover:bg-slate-100 text-slate-700';
+        li.className = 'flex items-center gap-3 px-4 py-2 cursor-pointer hover:bg-slate-100 text-slate-700'
+          + (index === 0 ? ' bg-slate-200' : '');
 
         const img = document.createElement('img');
         img.src = game.image;
@@ -154,28 +217,121 @@
         li.addEventListener('click', () => {
           guessInput.value = game.title;
           autocompleteList.classList.add('hidden');
+          currentMatches = [];
         });
         autocompleteList.appendChild(li);
       });
       autocompleteList.classList.remove('hidden');
     }
 
+    let currentMatches = []; // az épp megjelenített autocomplete találatok, az Enter-hez
+    let guessedIds = new Set(); // már megtippelt játékok - ezek kikerülnek a listából
+
     guessInput.addEventListener('input', () => {
       const query = guessInput.value.trim().toLowerCase();
       if (query === '') {
+        currentMatches = [];
         autocompleteList.classList.add('hidden');
         return;
       }
-      const matches = allGames.filter(game =>
-        game.title.toLowerCase().includes(query)
+      currentMatches = allGames.filter(game =>
+        !guessedIds.has(game.id) && game.title.toLowerCase().includes(query)
       );
-      renderSuggestions(matches);
+      renderSuggestions(currentMatches);
     });
 
     // Lista elrejtése, ha máshova kattintanak
     document.addEventListener('click', (e) => {
       if (!guessInput.contains(e.target) && !autocompleteList.contains(e.target)) {
         autocompleteList.classList.add('hidden');
+      }
+    });
+
+    // ---- Találgatás ellenőrzése ----
+    const resultMessage = document.getElementById('resultMessage');
+    const invalidMessage = document.getElementById('invalidMessage');
+    const guessHistory = document.getElementById('guessHistory');
+    const guessHistoryBody = document.getElementById('guessHistoryBody');
+
+    function findGameByName(name) {
+      const target = name.trim().toLowerCase();
+      return allGamesFull.find(g => g.name && g.name.trim().toLowerCase() === target);
+    }
+
+    function addIncorrectGuessRow(game) {
+      const row = document.createElement('div');
+      row.className = 'guess-row grid grid-cols-6 gap-2';
+
+      const values = [
+        game.name || '-',
+        game.releaseYear ?? '-',
+        game.developer || '-',
+        game.publisher || '-',
+        Array.isArray(game.genre) ? game.genre.join(', ') : (game.genre || '-'),
+        Array.isArray(game.platform) ? game.platform.join(', ') : (game.platform || '-')
+      ];
+
+      values.forEach(val => {
+        const box = document.createElement('div');
+        box.className = 'guess-box bg-white border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-700 text-center';
+        box.textContent = val;
+        row.appendChild(box);
+      });
+
+      guessHistoryBody.prepend(row);
+      guessHistory.classList.remove('hidden');
+
+      // 3 helytelen tipp után a lista görgethetővé válik
+      const guessCount = guessHistoryBody.children.length;
+      if (guessCount >= 3) {
+        guessHistoryBody.classList.add('max-h-72', 'overflow-y-auto', 'pr-1');
+      }
+    }
+
+    function checkGuess() {
+      const game = dailyGames[selectedChoice];
+      if (!game) return; // még nincs nehézség kiválasztva
+
+      const guessRaw = guessInput.value.trim();
+      if (guessRaw === '') return;
+
+      invalidMessage.classList.add('hidden');
+
+      // Megnézzük, hogy a beírt szöveg egyáltalán egy ismert játék neve-e
+      const guessedGame = findGameByName(guessRaw);
+      if (!guessedGame) {
+        invalidMessage.classList.remove('hidden');
+        autocompleteList.classList.add('hidden');
+        return;
+      }
+
+      // Csak akkor "Nyertél", ha pontosan a JELENLEG kiválasztott nehézséghez kisorsolt
+      // játékot találta el (id alapján) - egy másik nehézségben kisorsolt játék még ha
+      // véletlenül el is találná, nem számít győzelemnek.
+      if (guessedGame.id === game.id) {
+        resultMessage.textContent = `Nyertél! 🎉 A kisorsolt játék: ${game.name}`;
+        resultMessage.classList.remove('hidden');
+        autocompleteList.classList.add('hidden');
+        guessInput.parentElement.classList.add('hidden');
+        return;
+      }
+
+      // Helytelen, de érvényes tipp - bekerül a lista aljára, és kizárjuk a jövőbeli tippekből
+      addIncorrectGuessRow(guessedGame);
+      guessedIds.add(guessedGame.id);
+      guessInput.value = '';
+      autocompleteList.classList.add('hidden');
+    }
+
+    guessInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        // Ha nyitva van az autocomplete lista, az Enter először betölti a kiemelt (első) találatot
+        if (!autocompleteList.classList.contains('hidden') && currentMatches.length > 0) {
+          guessInput.value = currentMatches[0].title;
+          autocompleteList.classList.add('hidden');
+          currentMatches = [];
+        }
+        checkGuess();
       }
     });
   </script>
