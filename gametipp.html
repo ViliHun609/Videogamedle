@@ -22,7 +22,7 @@
   <div class="flex-1 min-h-0 flex flex-col items-center justify-center w-full gap-4">
     <img id="gameplayImage" class="hidden max-w-xl w-full max-h-[60vh] object-contain rounded-xl shadow-lg" alt="Gameplay kép">
     <p id="resultMessage" class="hidden text-2xl font-bold text-green-600"></p>
-    <p id="invalidMessage" class="hidden text-lg font-semibold text-red-600">Nem érvényes játék</p>
+    <p id="invalidMessage" class="hidden text-lg font-semibold text-red-600">Invalid title</p>
   </div>
 
   
@@ -60,24 +60,24 @@
       <div class="grid grid-cols-3 gap-4 mb-8">
         <button type="button" data-choice="1"
           class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
-          <span class="choice-title font-semibold text-slate-500 text-base mb-2">Easy</span>
-          <span class="choice-desc text-sm text-slate-400 leading-snug">The games in this difficulty are games that have been released in recent years or are too popular to be forgotten.</span>
+          <span class="choice-title font-semibold text-slate-500 text-base mb-2">Reduced</span>
+          <span class="choice-desc text-sm text-slate-400 leading-snug">The games pool is reduced to recent and popular games.</span>
         </button>
         <button type="button" data-choice="2"
           class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
-          <span class="choice-title font-semibold text-slate-500 text-base mb-2">Medium</span>
-          <span class="choice-desc text-sm text-slate-400 leading-snug">In this difficulty, the game pool is expanded to games that are older and not as well-known. </span>
+          <span class="choice-title font-semibold text-slate-500 text-base mb-2">Less Reduced</span>
+          <span class="choice-desc text-sm text-slate-400 leading-snug">The reduced games pool is expanded with games that are a bit old but not forgotten.</span>
         </button>
         <button type="button" data-choice="3"
           class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
-          <span class="choice-title font-semibold text-slate-500   text-base mb-2">Wildcard</span>
-          <span class="choice-desc text-sm text-slate-400 leading-snug">Do you think you've got what it takes? Think you've got the smallest of details down? Well, you might get lucky...</span>
+          <span class="choice-title font-semibold text-slate-500   text-base mb-2">True Videogamedle</span>
+          <span class="choice-desc text-sm text-slate-400 leading-snug">The intended difficulty. It includes every game that the list has.</span>
         </button>
       </div>
     </div>
   </div>
 
-  <script>
+  <script> //JAVASCRIPT
     const backdrop = document.getElementById('modalBackdrop');
     
     function closeModal() {
@@ -88,7 +88,7 @@
     }
     
 
-    // ---- Determinisztikus, napi "véletlen" generátor ----
+    // Napi "véletlen" generátor
     // Ugyanaznap mindenkinek ugyanaz a játék jön ki, másnap viszont más.
     function hashString(str) {
       let hash = 0;
@@ -247,7 +247,7 @@
       }
     });
 
-    // ---- Találgatás ellenőrzése ----
+    // Találgatás ellenőrzése
     const resultMessage = document.getElementById('resultMessage');
     const invalidMessage = document.getElementById('invalidMessage');
     const guessHistory = document.getElementById('guessHistory');
@@ -309,7 +309,7 @@
       // játékot találta el (id alapján) - egy másik nehézségben kisorsolt játék még ha
       // véletlenül el is találná, nem számít győzelemnek.
       if (guessedGame.id === game.id) {
-        resultMessage.textContent = `Nyertél! 🎉 A kisorsolt játék: ${game.name}`;
+        resultMessage.textContent = `You won! The selected game was: ${game.name}`;
         resultMessage.classList.remove('hidden');
         autocompleteList.classList.add('hidden');
         guessInput.parentElement.classList.add('hidden');
