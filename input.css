@@ -44,8 +44,9 @@
 }
 
 .ink-wash {
-  background-color: var(--ink-wash-1);
-  border-color: var(--ink-wash-border);
+  background-color: rgba(12, 12, 13, 0.55);
+  border: 1px solid var(--ink-wash-border);
+  backdrop-filter: blur(12px);
 }
 
 .font-main {
@@ -96,7 +97,7 @@ html::before {
   background-image: var(--bg-image);
   background-size: cover;
   background-position: center;
-  z-index: -1;
+  z-index: -2;
   filter: brightness(0.4);
 }
 
