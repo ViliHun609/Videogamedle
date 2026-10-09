@@ -156,3 +156,11 @@ nav a:hover {
 .hover:hover {
   border: 1px solid var(--portal-blue);
 }
+
+.portal_like {
+  display: inline-block;
+  background: linear-gradient(to right, var(--portal-orange) 30%, var(--portal-blue) 55%);
+  background-clip: text;
+  color: transparent;
+  font-variant:normal;
+}
