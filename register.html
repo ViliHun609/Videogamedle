@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Videogamedle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="input.css" />
+  <link rel="shortcut icon" href="./images/logo/logo.png" type="image/x-icon">
+  <style>
+    body {
+      background-image: var(--bg-image);
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+  </style>
+</head>
+<body class="h-screen flex flex-col">
+
+<script src="./scripts/shared_background_chooser.js"></script>
+
+<header class="shrink-0">
+</header>
+
+<main class="w-screen text-center h-screen mt-8 flex items-center justify-center">
+
+  <div class="bg-neutral-secondary-soft p-12 rounded-lg shadow-md w-full max-w-lg ink-wash backdrop-blur-[16px]">
+    <h1 class="pb-2 text-3xl uppercase mb-6">Register</h1>
+    
+    <form class="space-y-6">
+      <div>
+        <label for="username" class="block font-secondary text-left mb-1 text-sm">Username</label>
+        <input type="text" id="username" name="username" autocomplete="username" class="w-full p-2 rounded-md text-black" required >
+        <p class="text-sm opacity-70" id="password-hint">Username</p>
+      </div>
+
+      <div>
+        <label for="password" class="block font-secondary text-left mb-1 text-sm">password</label>
+        <input type="password" name="password" id="password" autocomplete="new-password" class="w-full p-2 rounded-md text-black">
+        <p class="text-sm opacity-70" id="password-hint">password</p>
+      </div>
+
+      <div>
+        <label for="confirm_password" class="block font-secondary text-left mb-1 text-sm">confirm password</label>
+        <input type="password" id="confirm_password" name="confirm_password" autocomplete="current-password" required class="w-full p-2 rounded-md text-black">
+        <p class="text-sm opacity-70" id="password-hint">confirm password</p>
+      </div>
+
+      <div>
+        <label for="pfp_upload" class="block font-secondary text-left mb-1 text-sm">Profile picture</label>
+        <input type="file" name="pfp_upload" id="pfp_upload" class="w-full p-2 rounded-md p-2 border-2">
+        <p class="text-sm text-yellow-500" id="password-hint">If you don't select a picture the default one will be used</p>
+      </div>
+
+      <button type="submit" class="w-full  p-2 ink-wash rounded-md hover text-xl">
+        Register
+      </button>
+    </form>
+</main>
+
+<footer class="py-4 text-center text-xs w-full flex items-center justify-center h-fit mt-auto">
+<p class="text-sm tracking-wide w-1/6 border-2 rounded-md h-fit content-center p-4 ink-wash portal_like_animation" style="border: 1px solid var(--portal-orange);">
+    Take a look at the project on GitHub
+	<a class="underline font-bold" href="https://github.com/ViliHun609/Videogamedle" target="_blank">
+	here
+	<svg class="footer-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"/></svg>
+	</a>
+</p>
+</footer>
+
+
+
+</body>
+</html>

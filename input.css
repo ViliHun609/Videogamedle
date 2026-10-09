@@ -102,7 +102,7 @@ html::before {
   background-size: cover;
   background-position: center;
   z-index: -2;
-  filter: brightness(0.4);
+  filter: brightness(0.6);
 }
 
 .button-icon-arrow-v2 {
@@ -163,4 +163,15 @@ nav a:hover {
   background-clip: text;
   color: transparent;
   font-variant:normal;
+}
+
+
+.sign-out {
+  border: 2px solid var(--color-bg);
+  transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  background-color: rgba(255, 0, 0, 0.192);
+}
+
+.sign-out:hover {
+  background-color: red;
 }
