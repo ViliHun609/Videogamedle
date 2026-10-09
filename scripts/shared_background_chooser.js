@@ -1,4 +1,4 @@
-let TOTAL_IMAGES = 3
+let TOTAL_IMAGES = 6
 
 function random(min, max) {
   const num = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -19,9 +19,9 @@ const fulldate = `${year}` + `${month}` + `${day}`;
 //console.log(fulldate)
 
 let seed = fulldate % TOTAL_IMAGES
-if (seed == 0) {
-    seed++
-}
+// if (seed == 0) {
+//     seed++
+// }
 
 //console.log(seed)
 
