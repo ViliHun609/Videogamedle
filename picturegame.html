@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Videogamedle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="input.css" />
+  <link rel="shortcut icon" href="./images/logo/logo.png" type="image/x-icon">
+</head>
+<body class="h-screen flex flex-col">
+    <script src="./scripts/shared_background_chooser.js"></script>
+
+<header class="shrink-0">
+    <nav class="w-full z-20 ink-wash">
+        <div class="max-w-screen grid grid-cols-3 items-center mx-auto p-4">
+
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="./images/logo/logo.png" class="h-7" alt="Videogamedle Logo" />
+                <span class="self-center text-xl text-heading font-semibold whitespace-nowrap portal_like">Videogamedle</span>
+            </a>
+
+            <div class="justify-self-center hidden w-full md:flex md:w-auto justify-center" id="navbar-user">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
+                    <li>
+                        <a href="#" class="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">home</a>
+                    </li>
+                    <li>
+                        <script src="./scripts/shared_background_chooser.js"></script>     <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">About</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/ViliHun609/Videogamedle" target="_blank" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">GitHub repo</a>
+                    </li>
+                    <li>
+                        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Contact</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="flex items-center justify-self-end md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button type="button" class="flex text-sm bg-neutral-primary rounded-full md:me-0 focus:ring-4 focus:ring-neutral-tertiary" id="user-menu-button" aria-expanded="false">
+                    <span class="sr-only">Open user menu</span>
+                    <a href="./profile.html">
+                        <img class="w-8 h-8 rounded-full" src="./assets/games/satisfactory/preview.jpg" alt="user photo">
+                    </a>
+                </button>
+
+            </div>
+
+        </div>
+    </nav>
+
+
+</header>
+
+<main class="w-screen text-center h-screen mt-8">
+
+  <h1 class="pb-2 text-5xl uppercase portal_like">Videogamedle</h1>
+  <h2 class="pb-20">Test your knowledge of Video games</h2>
+
+
+</main>
+
+<footer class="py-4 text-center text-xs w-full flex items-center justify-center h-fit">
+<p class="text-sm tracking-wide w-1/6 border-2 rounded-md h-fit content-center p-4 ink-wash portal_like_animation" style="border: 1px solid var(--portal-orange);">
+    Take a look at the project on GitHub
+	<a class="underline font-bold" href="https://github.com/ViliHun609/Videogamedle" target="_blank">
+	here
+	<svg class="footer-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"/></svg>
+	</a>
+</p>
+</footer>
+
+</body>
+
+</html> 
