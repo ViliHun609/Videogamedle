@@ -175,3 +175,24 @@ nav a:hover {
 .sign-out:hover {
   background-color: red;
 }
+
+#gamepic {
+
+}
+
+
+#game-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(10);
+  transition: all .3s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+svg {
+  transition: all 0.3s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+#homepage_link:hover svg {
+  transform: translateX(-15%);
+}

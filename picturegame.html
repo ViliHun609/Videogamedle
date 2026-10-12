@@ -7,6 +7,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="input.css" />
   <link rel="shortcut icon" href="./images/logo/logo.png" type="image/x-icon">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 </head>
 <body class="h-screen flex flex-col">
     <script src="./scripts/shared_background_chooser.js"></script>
@@ -21,20 +23,14 @@
             </a>
 
             <div class="justify-self-center hidden w-full md:flex md:w-auto justify-center" id="navbar-user">
-                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">home</a>
-                    </li>
-                    <li>
-                        <script src="./scripts/shared_background_chooser.js"></script>     <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">About</a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/ViliHun609/Videogamedle" target="_blank" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">GitHub repo</a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Contact</a>
-                    </li>
-                </ul>
+                <a href="./index.html" class="text-center align-center flex" id="homepage_link">
+                    <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="21" y1="12" x2="9" y2="12"></line>
+                      <polyline points="14 17 9 12 14 7"></polyline>
+                    </svg>
+                    <b>back to homepage</b>
+     
+                </a>
             </div>
 
             <div class="flex items-center justify-self-end md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -47,6 +43,7 @@
 
             </div>
 
+            
         </div>
     </nav>
 
@@ -55,9 +52,25 @@
 
 <main class="w-screen text-center h-screen mt-8">
 
-  <h1 class="pb-2 text-5xl uppercase portal_like">Videogamedle</h1>
-  <h2 class="pb-20">Test your knowledge of Video games</h2>
+  <h1 class="pb-2 text-5xl uppercase portal_like">Picturegamedle</h1>
+  <h2 class="pb-20">Guess the game based on the zoomed in picture</h2>
 
+  <div class="grid-cols-1 grid items-center gap-32" >
+
+    <div class="bg-black align-center m-auto w-4/12 overflow-hidden aspect-video rounded-md ink-wash border-4" id="gamepic">
+        <div class="overflow-hidden">
+        <img src="./assets/games/beamng-drive/gameplay.jpg" alt="" id="game-img" class="aspect-video">
+        </div>
+    </div>
+
+
+    <div class="">
+        <p>kereso</p>
+        <button id="btn">
+            <b>+1 guess</b>
+        </button>
+    </div>
+  </div>
 
 </main>
 
@@ -71,6 +84,27 @@
 </p>
 </footer>
 
+<script>
+
+const img = document.querySelector("#game-img");
+const currentWidth = img.clientWidth;
+let guesses = 0;
+
+const button = document.querySelector("#btn")
+
+const steps = [10, 8, 6, 4, 2, 1];
+
+img.style.transform = `scale(${steps[guesses]})`;
+
+async function loadGames() {
+  const response = await fetch('./JSON/games.json');
+  const data = await response.json();
+  const games = data.games;
+  console.log(games[0].name);
+}
+loadGames();    
+
+</script>
 </body>
 
 </html> 
