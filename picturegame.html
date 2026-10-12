@@ -57,9 +57,10 @@
 
   <div class="grid-cols-1 grid items-center gap-32" >
 
-    <div class="bg-black align-center m-auto w-4/12 overflow-hidden aspect-video rounded-md ink-wash border-4" id="gamepic">
+    <div class="align-center m-auto w-4/12 overflow-hidden aspect-video rounded-md ink-wash border-4 relative" id="gamepic">
+        <div class="absolute inset-0 z-10 ink-wash p-2 rounded-full mr-auto mt-1 mr-2 h-fit w-fit" id="zoom"></div>
         <div class="overflow-hidden">
-        <img src="./assets/games/beamng-drive/gameplay.jpg" alt="" id="game-img" class="aspect-video">
+            <img src="./assets/games/beamng-drive/gameplay.jpg" alt="" id="game-img" class="aspect-video">
         </div>
     </div>
 
@@ -69,6 +70,8 @@
         <button id="btn">
             <b>+1 guess</b>
         </button>
+        <p id="testplace"></p>
+        <p id="test-counter">0</p>
     </div>
   </div>
 
@@ -85,7 +88,31 @@
 </footer>
 
 <script>
+// Get games and test print
 
+const testplace = document.getElementById("testplace")
+function printgameid(game) {
+    testplace.innerHTML = game.id;
+}
+
+async function loadGames() {
+  const response = await fetch('./JSON/games.json');
+  const data = await response.json();
+
+
+  const selectedGame = data.games[0];
+  console.log(selectedGame)
+
+
+  printgameid(selectedGame)
+
+  // get the games picture based on selected game
+  img.src = `./assets/games/${selectedGame.id}/gameplay.jpg`
+}
+
+
+
+//  zomm in on image
 const img = document.querySelector("#game-img");
 const currentWidth = img.clientWidth;
 let guesses = 0;
@@ -93,16 +120,32 @@ let guesses = 0;
 const button = document.querySelector("#btn")
 
 const steps = [10, 8, 6, 4, 2, 1];
+const zoom = document.querySelector("#zoom")
+const counter = document.querySelector("#test-counter") 
 
 img.style.transform = `scale(${steps[guesses]})`;
+zoom.innerHTML = `${steps[guesses]}X Zoom`
 
-async function loadGames() {
-  const response = await fetch('./JSON/games.json');
-  const data = await response.json();
-  const games = data.games;
-  console.log(games[0].name);
+console.log(counter)
+
+function guess() {
+    if(guesses + 2 > steps.length) {
+        guesses++
+        counter.innerHTML = guesses
+    } else {
+        guesses++
+        zoom.innerHTML = `${steps[guesses]}X Zoom`
+        img.style.transform = `scale(${steps[guesses]})`;
+        counter.innerHTML = guesses
+    }
 }
-loadGames();    
+
+button.addEventListener("click", guess)
+
+
+
+loadGames();
+
 
 </script>
 </body>
