@@ -57,8 +57,8 @@
 
   <div class="grid-cols-1 grid items-center gap-32" >
 
-    <div class="align-center m-auto w-4/12 overflow-hidden aspect-video rounded-md ink-wash border-4 relative" id="gamepic">
-        <div class="absolute inset-0 z-10 ink-wash p-2 rounded-full mr-auto mt-1 mr-2 h-fit w-fit" id="zoom"></div>
+    <div class="align-center m-auto w-5/12 overflow-hidden aspect-video rounded-md ink-wash border-4 relative" id="gamepic">
+        <div class="absolute inset-0 z-10 ink-wash p-2 rounded-full mr-auto mt-2 ml-2 h-fit w-fit" id="zoom"></div>
         <div class="overflow-hidden">
             <img src="./assets/games/beamng-drive/gameplay.jpg" alt="" id="game-img" class="aspect-video">
         </div>
@@ -88,7 +88,31 @@
 </footer>
 
 <script>
-// Get games and test print
+// get games
+
+
+function random(min, max) {
+  const num = Math.floor(Math.random() * (max - min + 1)) + min;
+  return num;
+}
+
+// Source - https://stackoverflow.com/a/63473804
+// Posted by 3limin4t0r
+// Retrieved 2026-10-13, License - CC BY-SA 4.0
+//// Source - https://stackoverflow.com/a/63473117
+// Posted by ponury-kostek
+// Retrieved 2026-10-13, License - CC BY-SA 4.0
+
+// reformatted with those 2 sources
+function imageExists(url) {
+  return new Promise(resolve => {
+    const img = new Image();
+    img.onload = () => resolve(true);
+    img.onerror = () => resolve(false);
+    img.src = url;
+  });
+}
+// --------------------------------------------------
 
 const testplace = document.getElementById("testplace")
 function printgameid(game) {
@@ -98,21 +122,56 @@ function printgameid(game) {
 async function loadGames() {
   const response = await fetch('./JSON/games.json');
   const data = await response.json();
+  
 
-
-  const selectedGame = data.games[7];
-  console.log(selectedGame)
-
-
-  printgameid(selectedGame)
-
+  const selectedIndex = await getRandomIndexDaily(data);
+  const selectedGame = data.games[selectedIndex];
+  
+  //load getRandomDaily
+  //console.log(selectedGame)
+  
   // get the games picture based on selected game
   img.src = `./assets/games/${selectedGame.id}/gameplay.jpg`
+  
+  //console.log(selectedGame.images)
+  
+  return data
+}
+
+// get random game
+async function getRandomIndexDaily(data) {
+    // const d = new Date();
+    // const year = d.getFullYear();
+    // const month = d.getMonth() + 1; 
+    // const day = d.getDate();
+
+    // const fulldate = `${year}` + `${month}` + `${day}`;
+    
+    // let selectedIndex = fulldate % data.games.length
+
+    const gameWImg = []
+    //const exists = await imageExists('./assets/the-forest/gameplay.jpg');
+    //console.log(exists);
+    //console.log(data.games[40].images.gameplay.complete)
+    for(let i = 0; i < data.games.length; i++) {
+        if(await imageExists(`./assets/games/${data.games[i].id}/gameplay.jpg`) == true) {
+            gameWImg.push(i)
+        }
+    }
+    const arrayIndex = random(0, gameWImg.length-1)
+
+    //console.log(gameWImg)
+    //console.log(arrayIndex)
+    const selectedIndex = gameWImg[arrayIndex]
+    //console.log(selectedIndex)
+    return selectedIndex
 }
 
 
 
-//  zomm in on image
+
+
+//  zoom in on image and zoom display
 const img = document.querySelector("#game-img");
 const currentWidth = img.clientWidth;
 let guesses = 0;
@@ -126,7 +185,7 @@ const counter = document.querySelector("#test-counter")
 img.style.transform = `scale(${steps[guesses]})`;
 zoom.innerHTML = `${steps[guesses]}X Zoom`
 
-console.log(counter)
+//console.log(counter)
 
 function guess() {
     if(guesses + 2 > steps.length) {
@@ -139,8 +198,9 @@ function guess() {
         counter.innerHTML = guesses
     }
 }
-
 button.addEventListener("click", guess)
+
+
 
 
 
