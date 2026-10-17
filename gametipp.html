@@ -54,33 +54,30 @@
 
 
 </header>
-<main>
+<main class="w-screen text-center h-screen mt-8">
 
 
   <div class="flex-1 min-h-0 flex flex-col items-center justify-center w-full gap-4">
-    <div>
+    <h1 class="pb-2 text-5xl uppercase portal_like">Guessgamedle</h1>
+    <h2 class="pb-20">Guess the game based on the details of your table of incorrect guesses</h2>
 
-    </div>
-    <div id="centerBox" class="message-box center-box w-full max-w-xl border rounded-xl shadow-sm px-6 py-4 text-center ink-wash">
-      Take a guess. You either get lucky or you get to start off with the incorrect game's details for your next guess.
-    </div>
     <p id="resultMessage" class="message-box win-box hidden bg-green-50 border border-green-300 rounded-xl shadow-sm px-5 py-3 text-2xl font-bold text-green-600 text-center"></p>
     <p id="invalidMessage" class="message-box error-box hidden bg-red-50 border border-red-300 rounded-xl shadow-sm px-4 py-2 text-lg font-semibold text-red-600 text-center">Invalid title</p>
   </div>
 
   
 
-  <div class="text-center justify-end w-full max-w-3xl">
+  <div class="mx-auto text-center justify-end w-full max-w-3xl">
     <div class="relative w-full">
       <ul id="autocompleteList"
-        class="hidden absolute bottom-full left-0 mb-2 w-full max-h-48 overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-lg text-left z-10">
+        class="hidden absolute top-full left-0 mt-2 w-full max-h-48 overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-lg text-left z-10">
       </ul>
       <input id="guessInput" type="text" autocomplete="off" placeholder="Guess here..." class="w-full px-4 py-2 rounded-full focus:outline-none" style="color: black;">
     </div>
   </div>
 
   <!-- Helytelen tippek listája -->
-  <div id="guessHistory" class="hidden w-full max-w-3xl mt-6 mb-6">
+  <div id="guessHistory" class="hidden mx-auto w-full max-w-3xl mt-6 mb-6">
     <div class="grid grid-cols-6 gap-2 mb-2">
       <div class="guess-box guess-box-header text-white rounded-lg px-3 py-2 text-sm font-semibold text-center ink-wash">Name</div>
       <div class="guess-box guess-box-header text-white rounded-lg px-3 py-2 text-sm font-semibold text-center ink-wash">Release Year</div>
@@ -238,7 +235,7 @@
       matches.forEach((game, index) => {
         const li = document.createElement('li');
         li.className = 'flex items-center gap-3 px-4 py-2 cursor-pointer hover:bg-slate-100 text-slate-700'
-          + (index === 0 ? ' bg-slate-200' : '');
+          + (index === activeIndex ? ' bg-slate-200' : '');
 
         const img = document.createElement('img');
         img.src = game.image;
@@ -252,6 +249,11 @@
         li.appendChild(img);
         li.appendChild(span);
 
+        li.addEventListener('mouseenter', () => {
+          activeIndex = index;
+          updateActiveSuggestion(false);
+        });
+
         li.addEventListener('click', () => {
           guessInput.value = game.title;
           autocompleteList.classList.add('hidden');
@@ -263,6 +265,18 @@
     }
 
     let currentMatches = []; // az épp megjelenített autocomplete találatok, az Enter-hez
+    let activeIndex = 0; // a nyilakkal / egérrel kijelölt találat indexe
+
+    // A kijelölt találat kiemelése (és szükség esetén a látható részre görgetése)
+    function updateActiveSuggestion(scroll = true) {
+      const items = autocompleteList.children;
+      for (let i = 0; i < items.length; i++) {
+        items[i].classList.toggle('bg-slate-200', i === activeIndex);
+      }
+      if (scroll && items[activeIndex]) {
+        items[activeIndex].scrollIntoView({ block: 'nearest' });
+      }
+    }
     let guessedIds = new Set(); // már megtippelt játékok - ezek kikerülnek a listából
 
     guessInput.addEventListener('input', () => {
@@ -275,6 +289,7 @@
       currentMatches = allGames.filter(game =>
         !guessedIds.has(game.id) && game.title.toLowerCase().includes(query)
       );
+      activeIndex = 0; // új találatlistánál mindig az első a kijelölt
       renderSuggestions(currentMatches);
     });
 
@@ -334,7 +349,7 @@
       red: 'bg-red-500 border-red-600 text-white'
     };
 
-    function addIncorrectGuessRow(game) {
+    function addGuessRow(game) {
       const answer = dailyGames[selectedChoice]; // a kisorsolt játék a kiválasztott nehézségben
       const row = document.createElement('div');
       row.className = 'guess-row grid grid-cols-6 gap-2';
@@ -394,6 +409,7 @@
       // játékot találta el (id alapján) - egy másik nehézségben kisorsolt játék még ha
       // véletlenül el is találná, nem számít győzelemnek.
       if (guessedGame.id === game.id) {
+        addGuessRow(guessedGame); // a sorsolt játék adatai is bekerülnek a listába (minden rubrika zöld)
         resultMessage.textContent = `You won! The selected game was: ${game.name}`;
         resultMessage.classList.remove('hidden');
         autocompleteList.classList.add('hidden');
@@ -402,17 +418,27 @@
       }
 
       // Helytelen, de érvényes tipp - bekerül a lista aljára, és kizárjuk a jövőbeli tippekből
-      addIncorrectGuessRow(guessedGame);
+      addGuessRow(guessedGame);
       guessedIds.add(guessedGame.id);
       guessInput.value = '';
       autocompleteList.classList.add('hidden');
     }
 
     guessInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        // Ha nyitva van az autocomplete lista, az Enter először betölti a kiemelt (első) találatot
-        if (!autocompleteList.classList.contains('hidden') && currentMatches.length > 0) {
-          guessInput.value = currentMatches[0].title;
+      const listOpen = !autocompleteList.classList.contains('hidden') && currentMatches.length > 0;
+
+      if (e.key === 'ArrowDown' && listOpen) {
+        e.preventDefault();
+        activeIndex = (activeIndex + 1) % currentMatches.length;
+        updateActiveSuggestion();
+      } else if (e.key === 'ArrowUp' && listOpen) {
+        e.preventDefault();
+        activeIndex = (activeIndex - 1 + currentMatches.length) % currentMatches.length;
+        updateActiveSuggestion();
+      } else if (e.key === 'Enter') {
+        // Ha nyitva van az autocomplete lista, az Enter először betölti a kijelölt találatot
+        if (listOpen) {
+          guessInput.value = currentMatches[activeIndex].title;
           autocompleteList.classList.add('hidden');
           currentMatches = [];
         }
