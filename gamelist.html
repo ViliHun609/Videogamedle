@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamelist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="input.css"/>
+  <link rel="shortcut icon" href="./images/logo/logo.png" type="image/x-icon">
+</head>
+<body>
+    <script src="./scripts/shared_background_chooser.js"></script>
+
+<header class="shrink-0">
+    <nav class="w-full z-20 ink-wash">
+        <div class="max-w-screen grid grid-cols-3 items-center mx-auto p-4">
+
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="./images/logo/logo.png" class="h-7" alt="Videogamedle Logo" />
+                <span class="self-center text-xl text-heading font-semibold whitespace-nowrap portal_like">Videogamedle</span>
+            </a>
+
+            <div class="justify-self-center hidden w-full md:flex md:w-auto justify-center" id="navbar-user">
+                <a href="./picturegame.html" class="text-center align-center flex" id="homepage_link">
+                    <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="21" y1="12" x2="9" y2="12"></line>
+                      <polyline points="14 17 9 12 14 7"></polyline>
+                    </svg>
+                    <b>back to picture guessing</b>
+     
+                </a>
+            </div>
+
+            <div class="flex items-center justify-self-end md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <button type="button" class="flex text-sm bg-neutral-primary rounded-full md:me-0 focus:ring-4 focus:ring-neutral-tertiary" id="user-menu-button" aria-expanded="false">
+                    <span class="sr-only">Open user menu</span>
+                    <a href="./profile.html">
+                        <img class="w-8 h-8 rounded-full" src="./assets/games/satisfactory/preview.jpg" alt="user photo">
+                    </a>
+                </button>
+
+            </div>
+            
+
+            
+        </div>
+    </nav>
+</header>
+
+
+    <main class="mt-24">
+
+            <h1 class="w-full m-auto text-center text-3xl" id="title"></h1>
+        <div id="listgrid" class="m-auto w-9/12 grid grid-cols-5 gap-y-8 gap-x-8 p-16 text-center">
+            <!-- games go here -->
+        </div>
+    </main>
+
+<script>
+
+const gridDiv = document.querySelector("#listgrid")
+const title = document.querySelector("#title")
+
+gridDiv.innerHTML += ``
+
+console.log(gridDiv)
+
+
+async function loadGames() {
+  const response = await fetch('./JSON/games.json');
+  const data = await response.json();
+  //console.log(data.games)
+  
+  displayGames(data.games)
+  title.innerText = `Here is all of the ${data.games.length} games you can choose from`
+  
+  
+  return data
+}
+
+function displayGames(games) {
+
+    for(const test in games) {
+        console.log(games[test].id)
+
+        let number = Number(test)+1
+        let Currentgame = games[test]
+        gridDiv.innerHTML += `
+                <div id="game" class="ink-wash p-8 rounded-2xl flex flex-wrap flex-col element-hover hover-list-element">
+
+                    <div class="overflow-hidden rounded-2xl ink-style">
+                    <img src="./assets/games/${Currentgame.id}/preview.jpg" alt="picture of ${Currentgame.name}" class="">
+                    </div>
+
+                    <span class="absolute top-2 left-2 px-2 py-1 rounded-lg ink-wash text-sm font-bold">
+                      #${number}
+                    </span>  
+
+                    <div class="p-4 flex flex-col gap-2 mt-4">
+                      <h3 class="text-lg font-bold leading-none">${Currentgame.name}</h3>
+                      <p class="text-sm opacity-70 mt-2">${Currentgame.developer}</p>
+                      <p class="text-sm opacity-70">${Currentgame.releaseYear}</p>
+                    </div>
+                </div>`
+    }
+
+}
+
+
+
+loadGames()
+
+</script>
+</body>
+</html>

@@ -67,13 +67,13 @@
 
 
 html {
-  height: 100vh;
+  /* height: 100vh; */
   position: relative;
   min-height: 100%;
 }
 
 html, body {
-  height: 100%;
+  /* height: 100%; */
   /*overflow: hidden;*/
 }
 
@@ -158,6 +158,19 @@ nav a:hover {
   border: 1px solid var(--portal-blue);
 }
 
+.element-hover {
+  transition: all .5s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.element-hover:hover img {
+  transition: all .7s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transform: scale(1.15);
+}
+
+.hover-list-element:hover {
+  transform: translateY(-6%);
+}
+
 .portal_like {
   display: inline-block;
   background: linear-gradient(to right, var(--portal-orange) 30%, var(--portal-blue) 55%);
@@ -196,4 +209,12 @@ svg {
 
 #homepage_link:hover svg {
   transform: translateX(-20%);
+}
+
+.ink-style {
+  border: solid 2px var(--ink-wash-border);
+}
+
+#subpage-link {
+  color: var(--portal-blue);
 }

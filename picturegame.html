@@ -10,7 +10,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 </head>
-<body class="h-screen flex flex-col">
+<body class="h-full w-full flex flex-col">
     <script src="./scripts/shared_background_chooser.js"></script>
 
 <header class="shrink-0">
@@ -50,10 +50,11 @@
 
 </header>
 
-<main class="w-screen text-center h-screen mt-8">
+<main class="w-screen text-center mt-8">
 
   <h1 class="pb-2 text-5xl uppercase portal_like">Picturegamedle</h1>
-  <h2 class="pb-20">Guess the game based on the zoomed in picture</h2>
+  <h2 class="pb-2">Guess the game based on the zoomed in picture</h2>
+  <h2 class="pb-20">Unsure what to choose from? <a href="./gamelist.html" class="font-medium hover:underline" id="subpage-link">Here is the list</a></h2>
 
   <div class="grid-cols-1 grid items-center gap-32" >
 
@@ -64,9 +65,16 @@
         </div>
     </div>
 
+    <div class="ink-wash h-12 w-1/2 m-auto">
+        <b id="alGuessedGames"></b>
+
+        <span id="searchFilter"></span>
+    </div>
 
     <div class="">
-        <p>kereso</p>
+        <div id="searchbar-div" class="">
+            <input type="text" class="w-1/4 ink-wash h-12 m-auto rounded-md p-4" id="searchbar">
+        </div>
         <button id="btn">
             <b>+1 guess</b>
         </button>
@@ -168,7 +176,15 @@ async function getRandomIndexDaily(data) {
 }
 
 
+// const searchbar = document.querySelector("#searchbar")
+// const searchFilter = document.querySelector("#searchFilter")
 
+// function testsearch() {
+//     searchFilter.innerText = ``
+// }
+
+// //searchbar.addEventListener("keypress", testsearch)
+// searchbar.addEventListener("submit", testsearch)
 
 
 //  zoom in on image and zoom display
