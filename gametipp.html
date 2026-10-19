@@ -2,7 +2,7 @@
 <html lang="hu">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Videogamedle</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="input.css" />
@@ -15,7 +15,7 @@
   .modal-box { animation: scaleIn 0.25s ease-out; }
 </style>
 </head>
-<body>
+<body class="h-full w-full flex flex-col">
 <script src="./scripts/shared_background_chooser.js"></script>
 
 <header class="shrink-0">
@@ -54,13 +54,11 @@
 
 
 </header>
-<main class="w-screen text-center h-screen mt-8">
-
-
-  <div class="flex-1 min-h-0 flex flex-col items-center justify-center w-full gap-4">
+<main class="w-screen text-center mt-8">
     <h1 class="pb-2 text-5xl uppercase portal_like">Guessgamedle</h1>
     <h2 class="pb-20">Guess the game based on the details of your table of incorrect guesses</h2>
 
+  <div class="flex-1 min-h-0 flex flex-col items-center justify-center w-full gap-4">
     <p id="resultMessage" class="message-box win-box hidden bg-green-50 border border-green-300 rounded-xl shadow-sm px-5 py-3 text-2xl font-bold text-green-600 text-center"></p>
     <p id="invalidMessage" class="message-box error-box hidden bg-red-50 border border-red-300 rounded-xl shadow-sm px-4 py-2 text-lg font-semibold text-red-600 text-center">Invalid title</p>
   </div>
@@ -99,17 +97,17 @@
 
       <div class="grid grid-cols-3 gap-4 mb-8">
         <button type="button" data-choice="1"
-          class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
+          class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-45 rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
           <span class="choice-title font-semibold text-slate-500 text-base mb-2">Reduced</span>
           <span class="choice-desc text-sm text-slate-400 leading-snug">The games pool is reduced to recent and popular games.</span>
         </button>
         <button type="button" data-choice="2"
-          class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
+          class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-45 rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
           <span class="choice-title font-semibold text-slate-500 text-base mb-2">Less Reduced</span>
           <span class="choice-desc text-sm text-slate-400 leading-snug">The reduced games pool is expanded with games that are a bit old but not forgotten.</span>
         </button>
         <button type="button" data-choice="3"
-          class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-[180px] rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
+          class="choice-box flex flex-col items-center justify-center text-center p-5 min-h-45 rounded-xl border-2 border-slate-200 hover:border-slate-400 transition">
           <span class="choice-title font-semibold text-slate-500   text-base mb-2">True Videogamedle</span>
           <span class="choice-desc text-sm text-slate-400 leading-snug">The intended difficulty. It includes every game that the list has.</span>
         </button>
