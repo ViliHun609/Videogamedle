@@ -218,3 +218,10 @@ svg {
 #subpage-link {
   color: var(--portal-blue);
 }
+
+.not-played {
+  /* bg-danger-soft text-fg-danger-strong text-xs font-medium px-1.5 py-0.5 rounde */
+  color: white;
+  background-color: oklch(44.4% 0.177 26.89);
+  font-family: var(--font-secondary);
+}
