@@ -222,6 +222,22 @@ svg {
 .not-played {
   /* bg-danger-soft text-fg-danger-strong text-xs font-medium px-1.5 py-0.5 rounde */
   color: white;
-  background-color: oklch(44.4% 0.177 26.89);
+  background-color: rgb(159, 7, 18);
   font-family: var(--font-secondary);
+}
+
+.played {
+  color: white;
+  background-color: rgb(31, 134, 31);
+  font-family: var(--font-secondary);
+}
+
+
+.test {
+ animation: test2 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@keyframes test2 {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }

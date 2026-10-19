@@ -86,7 +86,7 @@ function displayGames(games) {
         let number = Number(test)+1
         let Currentgame = games[test]
         gridDiv.innerHTML += `
-                <div id="game" class="ink-wash p-8 rounded-2xl flex flex-wrap flex-col element-hover hover-list-element">
+                <div id="game" class="ink-wash p-8 rounded-2xl flex flex-wrap flex-col element-hover hover-list-element test">
 
                     <div class="overflow-hidden rounded-2xl ink-style">
                     <img src="./assets/games/${Currentgame.id}/preview.jpg" alt="picture of ${Currentgame.name}" class="">
@@ -102,7 +102,12 @@ function displayGames(games) {
                       <p class="text-sm opacity-70">${Currentgame.releaseYear}</p>
                     </div>
                 </div>`
+
+    let id = document.querySelector("#game")
+    id.classList.remove("test")
     }
+    let id = document.querySelector("#game")
+    id.classList.remove("test")
 
 }
 
