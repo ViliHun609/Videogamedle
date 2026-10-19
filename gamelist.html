@@ -81,12 +81,12 @@ async function loadGames() {
 function displayGames(games) {
 
     for(const test in games) {
-        console.log(games[test].id)
+        //console.log(games[test].id)
 
         let number = Number(test)+1
         let Currentgame = games[test]
         gridDiv.innerHTML += `
-                <div id="game" class="ink-wash p-8 rounded-2xl flex flex-wrap flex-col element-hover hover-list-element test">
+                <div id="" class="ink-wash p-8 rounded-2xl flex flex-wrap flex-col element-hover hover-list-element relative game-card">
 
                     <div class="overflow-hidden rounded-2xl ink-style">
                     <img src="./assets/games/${Currentgame.id}/preview.jpg" alt="picture of ${Currentgame.name}" class="">
@@ -103,11 +103,11 @@ function displayGames(games) {
                     </div>
                 </div>`
 
-    let id = document.querySelector("#game")
-    id.classList.remove("test")
+    let id = document.querySelectorAll("#game")
+    console.log(id)
+    //id.classList.add("test")
     }
-    let id = document.querySelector("#game")
-    id.classList.remove("test")
+
 
 }
 

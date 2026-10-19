@@ -65,10 +65,12 @@
         </div>
     </div>
 
-    <div class="ink-wash h-12 w-1/2 m-auto">
+    <div class="ink-wash h-64 w-1/2 m-auto">
         <b id="alGuessedGames"></b>
 
-        <span id="searchFilter"></span>
+        <span id="searchFilter">
+            //filtered
+        </span>
     </div>
 
     <div class="">
@@ -127,10 +129,14 @@ function printgameid(game) {
     testplace.innerHTML = game.id;
 }
 
+
+let allGames = []; // for testsearch()
+// LOADGAMES() !!!!!!!!
 async function loadGames() {
   const response = await fetch('./JSON/games.json');
   const data = await response.json();
-  
+
+  allGames = data.games
 
   const selectedIndex = await getRandomIndexDaily(data);
   const selectedGame = data.games[selectedIndex];
@@ -176,16 +182,72 @@ async function getRandomIndexDaily(data) {
 }
 
 
-// const searchbar = document.querySelector("#searchbar")
-// const searchFilter = document.querySelector("#searchFilter")
+// searchbar ----------------------------------------------
+const searchbar = document.querySelector("#searchbar")
+const searchFilter = document.querySelector("#searchFilter")
 
-// function testsearch() {
-//     searchFilter.innerText = ``
-// }
+function testsearch() {
+    //searchFilter.innerText = searchbar.value
+    let search = searchbar.value
+    let results = [];
 
-// //searchbar.addEventListener("keypress", testsearch)
-// searchbar.addEventListener("submit", testsearch)
+    for (let i = 0; i < allGames.length; i++) {
+      let name = allGames[i].id;
 
+      if (name.includes(search)) {
+        results.push(allGames[i]);
+      }
+    }
+    console.log(results)
+    //searchFilter.innerText = results[0].name
+
+    displayGamesFilter(results)
+}
+
+//searchbar.addEventListener("keypress", testsearch)
+searchbar.addEventListener("input", testsearch)
+
+function displayGamesFilter(games) {
+
+     let filtered = "";
+    for(let i = 0; i < games.length && i < 8; i++) {
+        let game = games[i]
+        let number = i + 1;
+
+        if(number == 1) {
+            filtered += `
+                    <div id="test" class="game-card ink-wash relative p-4 rounded-2xl flex flex-row element-hover hover-list-element">
+                    
+                      <div class="overflow-hidden rounded-2xl ink-style">
+                        <img src="./assets/games/${game.id}/preview.jpg"
+                             alt="picture of ${game.name}" class="w-24">
+                      </div>
+                  
+                      <div class="p-4 flex flex-col gap-2 mt-4">
+                        <h3 class="text-lg font-bold leading-none">${game.name}</h3>
+                        <p class="text-sm">${game.releaseYear}</p>
+                      </div>
+                  
+                    </div>`;
+        } else {
+            filtered  += `<div class="game-card ink-wash relative p-4 rounded-2xl flex flex-row element-hover hover-list-element">
+                    <div class="overflow-hidden rounded-2xl ink-style">
+                        <img src="./assets/games/${game.id}/preview.jpg"
+                             alt="picture of ${game.name}" class="w-24">
+                      </div>
+                  
+                      <div class="p-4 flex flex-col gap-2 mt-4">
+                        <h3 class="text-lg font-bold leading-none">${game.name}</h3>
+                        <p class="text-sm">${game.releaseYear}</p>
+                      </div>
+                  
+                    </div>`;
+        }
+    }
+        searchFilter.innerHTML = filtered;
+}
+
+// ------------------------------------------------------
 
 //  zoom in on image and zoom display
 const img = document.querySelector("#game-img");
@@ -200,9 +262,11 @@ const counter = document.querySelector("#test-counter")
 
 img.style.transform = `scale(${steps[guesses]})`;
 zoom.innerHTML = `${steps[guesses]}X Zoom`
+//
 
 //console.log(counter)
 
+// guessing
 function guess() {
     if(guesses + 2 > steps.length) {
         guesses++
