@@ -80,9 +80,6 @@
         <div id="searchbar-div" class="">
             <input type="text" class="w-1/4 ink-wash h-12 m-auto rounded-md p-4" id="searchbar" placeholder="Enter a game's name you see on on the picture">
         </div>
-        <button id="btn" class="border-2">
-            <b>+1 guess</b>
-        </button>
     </div>
   </div>
 
@@ -291,7 +288,6 @@ const img = document.querySelector("#game-img");
 const currentWidth = img.clientWidth;
 //let guesses = 0;
 
-const button = document.querySelector("#btn")
 
 const steps = [10, 8, 6, 4, 2, 1];
 const zoom = document.querySelector("#zoom")
@@ -323,7 +319,7 @@ function guess() {
         counter.innerHTML = guesses
     }
 }
-button.addEventListener("click", guess)
+
 
 
 
