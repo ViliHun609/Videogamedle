@@ -50,38 +50,39 @@
 
 </header>
 
-<main class="w-screen text-center mt-8">
+<main class="w-full text-center mt-8">
 
   <h1 class="pb-2 text-5xl uppercase portal_like">Picturegamedle</h1>
   <h2 class="pb-2">Guess the game based on the zoomed in picture</h2>
   <h2 class="pb-20">Unsure what to choose from? <a href="./gamelist.html" class="font-medium hover:underline" id="subpage-link">Here is the list</a></h2>
 
-  <div class="grid-cols-1 grid items-center gap-32" >
+  <div class="grid-cols-1 grid items-center gap-12" >
 
-    <div class="align-center m-auto w-5/12 overflow-hidden aspect-video rounded-md ink-wash border-4 relative" id="gamepic">
+    <div class="align-center m-auto w-4/12 overflow-hidden aspect-video rounded-md ink-wash border-4 relative" id="gamepic">
         <div class="absolute inset-0 z-10 ink-wash p-2 rounded-full mr-auto mt-2 ml-2 h-fit w-fit" id="zoom"></div>
         <div class="overflow-hidden">
             <img src="./assets/games/beamng-drive/gameplay.jpg" alt="" id="game-img" class="aspect-video">
         </div>
     </div>
 
-    <div class="ink-wash h-64 w-1/2 m-auto">
-        <b id="alGuessedGames"></b>
-
-        <span id="searchFilter">
-            //filtered
-        </span>
+    <div class="ink-wash h-12 w-1/12 mx-auto rounded-2xl">
+        <b id="test-counter"></b>
+        <span id="guessedState"></span>
     </div>
 
     <div class="">
+            <div id="searchFilter" class="flex flex-col-reverse gap-1 w-1/4 mx-auto mb-6 h-98 p-4">
+            <!-- Seached games go here  -->
+
+
+            </div>
+
         <div id="searchbar-div" class="">
-            <input type="text" class="w-1/4 ink-wash h-12 m-auto rounded-md p-4" id="searchbar">
+            <input type="text" class="w-1/4 ink-wash h-12 m-auto rounded-md p-4" id="searchbar" placeholder="Enter a game's name you see on on the picture">
         </div>
-        <button id="btn">
+        <button id="btn" class="border-2">
             <b>+1 guess</b>
         </button>
-        <p id="testplace"></p>
-        <p id="test-counter">0</p>
     </div>
   </div>
 
@@ -124,11 +125,14 @@ function imageExists(url) {
 }
 // --------------------------------------------------
 
-const testplace = document.getElementById("testplace")
-function printgameid(game) {
-    testplace.innerHTML = game.id;
-}
+// const testplace = document.getElementById("testplace")
+// function printgameid(game) {
+//     testplace.innerHTML = game.id;
+// }
+// old code used for debug
 
+let selectedGame = ``
+let guesses = 0;
 
 let allGames = []; // for testsearch()
 // LOADGAMES() !!!!!!!!
@@ -139,7 +143,8 @@ async function loadGames() {
   allGames = data.games
 
   const selectedIndex = await getRandomIndexDaily(data);
-  const selectedGame = data.games[selectedIndex];
+  //const selectedGame = data.games[selectedIndex];
+  selectedGame = data.games[selectedIndex];
   
   //load getRandomDaily
   //console.log(selectedGame)
@@ -186,13 +191,16 @@ async function getRandomIndexDaily(data) {
 const searchbar = document.querySelector("#searchbar")
 const searchFilter = document.querySelector("#searchFilter")
 
+
+let results = []; // so it can be used in handleKeys() too
+
 function testsearch() {
     //searchFilter.innerText = searchbar.value
-    let search = searchbar.value
-    let results = [];
+    let search = searchbar.value.toLowerCase()
+    results = [];  
 
     for (let i = 0; i < allGames.length; i++) {
-      let name = allGames[i].id;
+      let name = allGames[i].name.toLowerCase();
 
       if (name.includes(search)) {
         results.push(allGames[i]);
@@ -204,44 +212,73 @@ function testsearch() {
     displayGamesFilter(results)
 }
 
-//searchbar.addEventListener("keypress", testsearch)
-searchbar.addEventListener("input", testsearch)
+function handleKeys(e) {
+  //console.log(e.key);
+
+  if (e.key === "Enter") {
+    e.preventDefault();
+    guessCurrentGame(results[0])
+  } else if(e.key === "Escape") {
+    searchbar.value = ""
+    document.activeElement.blur()
+    //hideSearchFilter()
+  }
+  console.log(e.key)
+
+
+}
+
+let win = 0
+const guessedState = document.querySelector("#guessedState")
+function guessCurrentGame(guessedGame) {
+    //console.log(guessedGame.id)
+    //console.log(selectedGame.id)
+
+    if(guessedGame.id === selectedGame.id) {
+        guessedState.innerText = "You've won!"
+        win = 1
+        guess(win)
+
+    } else {
+        guessedState.innerText = "Wrong"
+        guess()
+    }
+}
+
+function hideSearchFilter() {
+    searchFilter.innerHTML = ""
+}
+
+//
+searchbar.addEventListener("input", testsearch);
+searchbar.addEventListener("keydown", handleKeys);
+searchbar.addEventListener("blur", hideSearchFilter)
 
 function displayGamesFilter(games) {
 
      let filtered = "";
-    for(let i = 0; i < games.length && i < 8; i++) {
+    for(let i = 0; i < games.length && i < 4; i++) {
         let game = games[i]
         let number = i + 1;
 
         if(number == 1) {
-            filtered += `
-                    <div id="test" class="game-card ink-wash relative p-4 rounded-2xl flex flex-row element-hover hover-list-element">
-                    
-                      <div class="overflow-hidden rounded-2xl ink-style">
-                        <img src="./assets/games/${game.id}/preview.jpg"
-                             alt="picture of ${game.name}" class="w-24">
-                      </div>
-                  
-                      <div class="p-4 flex flex-col gap-2 mt-4">
-                        <h3 class="text-lg font-bold leading-none">${game.name}</h3>
-                        <p class="text-sm">${game.releaseYear}</p>
-                      </div>
-                  
-                    </div>`;
+            filtered +=
+            `
+              <div id="test" class="dropdown-item ink-wash flex items-center gap-3 px-4 py-2 rounded-xl element-hover hover-list-element">
+                <img src="${game.images.preview}" alt="" class="w-12 h-12 rounded-lg">
+                <h3 class="font-bold leading-none">${game.name}</h3>
+                <span class="text-sm opacity-70 ml-auto">${game.releaseYear}</span>
+              </div>
+            `
         } else {
-            filtered  += `<div class="game-card ink-wash relative p-4 rounded-2xl flex flex-row element-hover hover-list-element">
-                    <div class="overflow-hidden rounded-2xl ink-style">
-                        <img src="./assets/games/${game.id}/preview.jpg"
-                             alt="picture of ${game.name}" class="w-24">
-                      </div>
-                  
-                      <div class="p-4 flex flex-col gap-2 mt-4">
-                        <h3 class="text-lg font-bold leading-none">${game.name}</h3>
-                        <p class="text-sm">${game.releaseYear}</p>
-                      </div>
-                  
-                    </div>`;
+            filtered  +=
+            `
+              <div class="dropdown-item ink-wash flex items-center gap-3 px-4 py-2 rounded-xl element-hover hover-list-element">
+                <img src="${game.images.preview}" alt="" class="w-12 h-12 rounded-lg">
+                <h3 class="font-bold leading-none">${game.name}</h3>
+                <span class="text-sm opacity-70 ml-auto">${game.releaseYear}</span>
+              </div>
+            `
         }
     }
         searchFilter.innerHTML = filtered;
@@ -252,7 +289,7 @@ function displayGamesFilter(games) {
 //  zoom in on image and zoom display
 const img = document.querySelector("#game-img");
 const currentWidth = img.clientWidth;
-let guesses = 0;
+//let guesses = 0;
 
 const button = document.querySelector("#btn")
 
@@ -268,10 +305,18 @@ zoom.innerHTML = `${steps[guesses]}X Zoom`
 
 // guessing
 function guess() {
-    if(guesses + 2 > steps.length) {
+
+
+    if(win == 1) {
+        guesses++
+        zoom.innerHTML = `${steps.at(-1)}X Zoom`
+        img.style.transform = `scale(${steps.at(-1)})`;
+        counter.innerHTML = guesses
+    } else if(guesses + 2 > steps.length) {
         guesses++
         counter.innerHTML = guesses
-    } else {
+    }
+    else {
         guesses++
         zoom.innerHTML = `${steps[guesses]}X Zoom`
         img.style.transform = `scale(${steps[guesses]})`;

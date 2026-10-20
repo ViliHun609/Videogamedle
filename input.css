@@ -245,7 +245,6 @@ svg {
 .game-card {
   opacity: 0;
   animation: card-in 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
-  animation-delay: calc(var(--i) * 60ms);
 }
 
 @keyframes card-in {
@@ -254,5 +253,6 @@ svg {
 }
 
 #test {
-  background-color: red;
+  border: 2px solid var(--portal-orange);
+  background-color: #0b0d10;
 }
