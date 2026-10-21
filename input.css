@@ -53,6 +53,12 @@
   backdrop-filter: blur(12px);
 }
 
+.ink-wash-minimal {
+  background-color: rgba(12, 12, 13, 0.357);
+  /* border: 1px solid var(--ink-wash-border); */
+  /* backdrop-filter: blur(4px); */
+}
+
 .font-main {
   font-family: var(--font-main);
 }
@@ -163,7 +169,7 @@ nav a:hover {
 }
 
 .element-hover:hover img {
-  transition: all .7s cubic-bezier(0.39, 0.575, 0.565, 1);
+  transition: all .25s cubic-bezier(0.39, 0.575, 0.565, 1);
   transform: scale(1.15);
 }
 
@@ -255,4 +261,45 @@ svg {
 #test {
   border: 2px solid var(--portal-orange);
   background-color: #0b0d10;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+
+.overlayBtnRight {
+  background-image:
+    linear-gradient(90deg, var(--portal-blue) 50%, var(--ink-wash-1) 50%);
+  background-position: bottom right;
+  border: 2px solid var(--portal-blue);
+  background-size: 200% 200%;
+  transition: 0.3s;
+}
+
+.overlayBtnRight:hover {
+  background-position: top left;
+}
+
+.overlayBtnLeft {
+    background-image:
+    linear-gradient(90deg, var(--ink-wash-1) 50%, var(--portal-orange) 50%);
+  background-position: bottom left;
+  border: 2px solid var(--portal-orange);
+  background-size: 200% 200%;
+  transition: 0.3s;
+}
+
+.overlayBtnLeft:hover {
+  background-position: top right;
+}
+
+@keyframes floatFade {
+  from { opacity: 0; transform: translateY(20%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#winner-card {
+  animation: floatFade .8s cubic-bezier(.22, 1, .36, 1);
 }

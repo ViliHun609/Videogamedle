@@ -205,7 +205,7 @@
     },
     {
       "id": "resident-evil-2-remake",
-      "name": "Resident Evil 2",
+      "name": "Resident Evil 2 Remake",
       "releaseYear": 2019,
       "developer": "Capcom",
       "publisher": "Capcom",
@@ -379,8 +379,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/resident-evil-remake/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-remake/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-remake-hd/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-remake-hd/gameplay.jpg"
       },
       "audio": null,
       "funFacts": []
@@ -680,8 +680,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/resident-evil-zero/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-zero/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-zero-hd/preview.jpg",
+        "gameplay": "/assets/games/resident-evil-zero-hd/gameplay.jpg"
       },
       "audio": null,
       "funFacts": []

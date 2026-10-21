@@ -10,11 +10,11 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 </head>
-<body class="h-full w-full flex flex-col">
+<body class="h-screen w-full flex flex-col">
     <script src="./scripts/shared_background_chooser.js"></script>
 
 <header class="shrink-0">
-    <nav class="w-full z-20 ink-wash">
+    <nav class="w-full z-20 ink-wash mb-4">
         <div class="max-w-screen grid grid-cols-3 items-center mx-auto p-4">
 
             <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -50,7 +50,13 @@
 
 </header>
 
-<main class="w-full text-center mt-8">
+<main class="w-full text-center relative">
+
+    <div class="fixed inset-0 z-20 flex justify-center ink-wash-minimal hidden" id="winnerDiv">
+
+
+
+    </div>
 
   <h1 class="pb-2 text-5xl uppercase portal_like">Picturegamedle</h1>
   <h2 class="pb-2">Guess the game based on the zoomed in picture</h2>
@@ -71,10 +77,8 @@
     </div>
 
     <div class="">
-            <div id="searchFilter" class="flex flex-col-reverse gap-1 w-1/4 mx-auto mb-6 h-98 p-4">
+            <div id="searchFilter" class="flex flex-col-reverse gap-1 w-1/4 mx-auto mb-6 p-4 h-[300px]">
             <!-- Seached games go here  -->
-
-
             </div>
 
         <div id="searchbar-div" class="">
@@ -85,7 +89,7 @@
 
 </main>
 
-<footer class="py-4 text-center text-xs w-full flex items-center justify-center h-fit">
+<footer class="py-4 text-center text-xs w-full flex items-center justify-center h-fit mt-auto">
 <p class="text-sm tracking-wide w-1/6 border-2 rounded-md h-fit content-center p-4 ink-wash portal_like_animation" style="border: 1px solid var(--portal-orange);">
     Take a look at the project on GitHub
 	<a class="underline font-bold" href="https://github.com/ViliHun609/Videogamedle" target="_blank">
@@ -186,27 +190,60 @@ async function getRandomIndexDaily(data) {
 
 // searchbar ----------------------------------------------
 const searchbar = document.querySelector("#searchbar")
+searchbar.value = ""
 const searchFilter = document.querySelector("#searchFilter")
 
 
 let results = []; // so it can be used in handleKeys() too
 
+// function testsearch() {
+//     //searchFilter.innerText = searchbar.value
+//     let search = searchbar.value.toLowerCase()
+//     results = [];  
+
+//     for (let i = 0; i < allGames.length; i++) {
+//       let name = allGames[i].name.toLowerCase();
+
+//       if (name.includes(search)) {
+//         results.push(allGames[i]);
+//       }
+//     }
+    
+//     // problem: cant search for RE1R
+//     // problem: cant search for RE1R
+//     // problem: cant search for RE1R
+//     console.log(results)
+//     //searchFilter.innerText = results[0].name
+
+//     displayGamesFilter(results)
+// }
+
 function testsearch() {
-    //searchFilter.innerText = searchbar.value
     let search = searchbar.value.toLowerCase()
-    results = [];  
+    let filterNames = []
+    results = []
 
     for (let i = 0; i < allGames.length; i++) {
       let name = allGames[i].name.toLowerCase();
 
       if (name.includes(search)) {
-        results.push(allGames[i]);
+        filterNames.push(allGames[i].name);
       }
     }
-    console.log(results)
-    //searchFilter.innerText = results[0].name
+
+    filterNames.sort()
+
+    
+    for(let i = 0; i < filterNames.length ; i++) {
+        for(let j = 0; j < allGames.length; j++) {
+            if(allGames[j].name === filterNames[i]) {
+                results.push(allGames[j])
+            }
+        }
+    }
 
     displayGamesFilter(results)
+
 }
 
 function handleKeys(e) {
@@ -234,7 +271,8 @@ function guessCurrentGame(guessedGame) {
     if(guessedGame.id === selectedGame.id) {
         guessedState.innerText = "You've won!"
         win = 1
-        guess(win)
+        guess()
+        winnnerOverlay()
 
     } else {
         guessedState.innerText = "Wrong"
@@ -282,6 +320,46 @@ function displayGamesFilter(games) {
 }
 
 // ------------------------------------------------------
+
+// 2026.10.21 -- new winner overlay -------------
+const winnerDiv = document.querySelector("#winnerDiv")
+
+function winnnerOverlay() {
+    winnerDiv.classList.remove("hidden")
+
+    winnerDiv.innerHTML = 
+    `
+        <div class="w-[25%] h-[45%] m-auto flex flex-col p-12 rounded-3xl gap-8 ink-wash" id="winner-card">
+            <b class="text-xl">You guessed correctly, the game was <br> ${selectedGame.name}</b>
+            <div class="">
+                <img src="${selectedGame.images.gameplay}" alt="gameplay picture of ${selectedGame}" class="w-full h-fit rounded-3xl">
+            </div>
+            <span class="-mt-8">
+                you got it in ${guesses} guess(es)
+            </span>
+
+            <div class="w-full mt-auto flex justify-center p-4 text-center">
+                <a class="w-1/4 h-12 rounded-tl-xl rounded-bl-xl flex items-center justify-center overlayBtnLeft" href="./index.html">Homepage</a>
+                <button class="w-1/4 h-12 rounded-tr-xl rounded-br-xl flex items-center justify-center overlayBtnRight" id="hideOverlayBtn">Hide overlay</button>
+            </div>
+        </div>
+    `
+    const hideOverlayBtn = document.querySelector("#hideOverlayBtn")
+    hideOverlayBtn.addEventListener("click", hideOverlay)
+
+}
+
+function hideOverlay() {
+    winnerDiv.innerHTML = ""
+    winnerDiv.classList.add("hidden")
+    searchbar.disabled = true;
+    guessedState.innerText = "Game is locked"
+}
+
+// freeze the state of game NEEDED
+
+
+// -----------------------------------------------
 
 //  zoom in on image and zoom display
 const img = document.querySelector("#game-img");
