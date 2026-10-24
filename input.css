@@ -303,3 +303,14 @@ a {
 #winner-card {
   animation: floatFade .8s cubic-bezier(.22, 1, .36, 1);
 }
+
+
+
+#lockedGameText {
+  animation: floatFade2 5s cubic-bezier(.22, 1, .36, 1);
+}
+
+@keyframes floatFade2 {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

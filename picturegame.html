@@ -10,7 +10,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 </head>
-<body class="h-screen w-full flex flex-col">
+<body class="min-h-screen h-fit w-screen flex flex-col">
     <script src="./scripts/shared_background_chooser.js"></script>
 
 <header class="shrink-0">
@@ -53,31 +53,41 @@
 <main class="w-full text-center relative">
 
     <div class="fixed inset-0 z-20 flex justify-center ink-wash-minimal hidden" id="winnerDiv">
-
-
-
+        <!-- winner card here -->
     </div>
+
+    <!-- <div class=" absolute w-1/6 h-full flex flex-col justify-center p-4">
+        <div class="ink-wash h-fit flex flex-col rounded-xl">
+                <b>how to play</b>
+                <span>type a games name in the searchbar </span>
+                <button>okay</button>
+        </div>
+    </div> -->
 
   <h1 class="pb-2 text-5xl uppercase portal_like">Picturegamedle</h1>
   <h2 class="pb-2">Guess the game based on the zoomed in picture</h2>
-  <h2 class="pb-20">Unsure what to choose from? <a href="./gamelist.html" class="font-medium hover:underline" id="subpage-link">Here is the list</a></h2>
+  <h2 class="pb-6">Unsure what to choose from? <a href="./gamelist.html" class="font-medium hover:underline" id="subpage-link">Here is the list</a></h2>
 
-  <div class="grid-cols-1 grid items-center gap-12" >
+  <div class="grid-cols-1 grid items-center gap-8" >
+
+    <div id="lockedGame">
+        <!-- locked game text -->
+    </div>
 
     <div class="align-center m-auto w-4/12 overflow-hidden aspect-video rounded-md ink-wash border-4 relative" id="gamepic">
         <div class="absolute inset-0 z-10 ink-wash p-2 rounded-full mr-auto mt-2 ml-2 h-fit w-fit" id="zoom"></div>
         <div class="overflow-hidden">
-            <img src="./assets/games/beamng-drive/gameplay.jpg" alt="" id="game-img" class="aspect-video">
+            <img src="./assets/games/beamng-drive/gameplay.jpg" alt="" id="game-img" class="aspect-video select-none">
         </div>
     </div>
 
-    <div class="ink-wash h-12 w-1/12 mx-auto rounded-2xl">
-        <b id="test-counter"></b>
+    <div class="ink-wash h-fit min-h-8 text-center w-1/12 mx-auto rounded-2xl p-4 flex flex-col-2 gap-2 justify-center text-nowrap w-fit min-w-8">
+        <b id="test-counter">Guesses: 0</b>
         <span id="guessedState"></span>
     </div>
 
     <div class="">
-            <div id="searchFilter" class="flex flex-col-reverse gap-1 w-1/4 mx-auto mb-6 p-4 h-[300px]">
+            <div id="searchFilter" class="flex flex-col-reverse gap-1 w-1/4 mx-auto mb-2 p-4 h-[250px]">
             <!-- Seached games go here  -->
             </div>
 
@@ -90,7 +100,7 @@
 </main>
 
 <footer class="py-4 text-center text-xs w-full flex items-center justify-center h-fit mt-auto">
-<p class="text-sm tracking-wide w-1/6 border-2 rounded-md h-fit content-center p-4 ink-wash portal_like_animation" style="border: 1px solid var(--portal-orange);">
+<p class="text-sm tracking-wide w-fit border-2 rounded-md h-fit content-center p-4 ink-wash portal_like_animation" style="border: 1px solid var(--portal-orange);">
     Take a look at the project on GitHub
 	<a class="underline font-bold" href="https://github.com/ViliHun609/Videogamedle" target="_blank">
 	here
@@ -288,6 +298,12 @@ function hideSearchFilter() {
 searchbar.addEventListener("input", testsearch);
 searchbar.addEventListener("keydown", handleKeys);
 searchbar.addEventListener("blur", hideSearchFilter)
+searchbar.addEventListener("focus", testsearch)
+//searchFilter.addEventListener("click", test)
+
+function test(e) {
+    console.log(e.target)
+}
 
 function displayGamesFilter(games) {
 
@@ -309,7 +325,7 @@ function displayGamesFilter(games) {
             filtered  +=
             `
               <div class="dropdown-item ink-wash flex items-center gap-3 px-4 py-2 rounded-xl element-hover hover-list-element">
-                <img src="${game.images.preview}" alt="" class="w-12 h-12 rounded-lg">
+                <img src="${game.images.preview}" alt="" class="w-10 h-10 rounded-lg">
                 <h3 class="font-bold leading-none">${game.name}</h3>
                 <span class="text-sm opacity-70 ml-auto">${game.releaseYear}</span>
               </div>
@@ -325,22 +341,24 @@ function displayGamesFilter(games) {
 const winnerDiv = document.querySelector("#winnerDiv")
 
 function winnnerOverlay() {
+    searchbar.value = ""
+    lockGame()
     winnerDiv.classList.remove("hidden")
 
     winnerDiv.innerHTML = 
     `
-        <div class="w-[25%] h-[45%] m-auto flex flex-col p-12 rounded-3xl gap-8 ink-wash" id="winner-card">
+        <div class="w-[25%] h-fit m-auto flex flex-col p-12 rounded-3xl gap-8 ink-wash" id="winner-card">
             <b class="text-xl">You guessed correctly, the game was <br> ${selectedGame.name}</b>
             <div class="">
                 <img src="${selectedGame.images.gameplay}" alt="gameplay picture of ${selectedGame}" class="w-full h-fit rounded-3xl">
             </div>
-            <span class="-mt-8">
+            <span class="-mt-6">
                 you got it in ${guesses} guess(es)
             </span>
 
             <div class="w-full mt-auto flex justify-center p-4 text-center">
-                <a class="w-1/4 h-12 rounded-tl-xl rounded-bl-xl flex items-center justify-center overlayBtnLeft" href="./index.html">Homepage</a>
-                <button class="w-1/4 h-12 rounded-tr-xl rounded-br-xl flex items-center justify-center overlayBtnRight" id="hideOverlayBtn">Hide overlay</button>
+                <a class="w-fit h-12 rounded-tl-xl rounded-bl-xl flex items-center justify-center overlayBtnLeft p-4" href="./index.html">Homepage</a>
+                <button class="w-fit h-12 rounded-tr-xl rounded-br-xl flex items-center justify-center overlayBtnRight p-4" id="hideOverlayBtn">Hide overlay</button>
             </div>
         </div>
     `
@@ -352,11 +370,19 @@ function winnnerOverlay() {
 function hideOverlay() {
     winnerDiv.innerHTML = ""
     winnerDiv.classList.add("hidden")
-    searchbar.disabled = true;
-    guessedState.innerText = "Game is locked"
+    //guessedState.innerText = "Game is locked"
 }
 
 // freeze the state of game NEEDED
+const lockedGameDiv = document.querySelector("#lockedGame")
+function lockGame() {
+    searchbar.disabled = true;
+    lockedGameDiv.innerHTML +=
+    `
+    <b class="ink-wash w-fit m-auto rounded-2xl p-4 text-red-500" id="lockedGameText">The game is locked, you have already completed it for today</b>
+
+    `
+}
 
 
 // -----------------------------------------------
@@ -385,16 +411,17 @@ function guess() {
         guesses++
         zoom.innerHTML = `${steps.at(-1)}X Zoom`
         img.style.transform = `scale(${steps.at(-1)})`;
-        counter.innerHTML = guesses
+        //ícounter.innerHTML = guesses
+        counter.innerHTML = `Guesses: ${guesses}`
     } else if(guesses + 2 > steps.length) {
         guesses++
-        counter.innerHTML = guesses
+        counter.innerHTML = `Guesses: ${guesses}`
     }
     else {
         guesses++
         zoom.innerHTML = `${steps[guesses]}X Zoom`
         img.style.transform = `scale(${steps[guesses]})`;
-        counter.innerHTML = guesses
+        counter.innerHTML = `Guesses: ${guesses}`
     }
 }
 
