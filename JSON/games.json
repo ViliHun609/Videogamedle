@@ -1371,6 +1371,49 @@
       },
       "audio": null,
       "funFacts": []
+    },
+     {
+      "id": "sekiro",
+      "name": "Sekiro: Shadows Die Twice",
+      "releaseYear": 2019,
+      "developer": "FromSoftware",
+      "publisher": "Activision",
+      "genre": [
+        "action-adventure"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation",
+        "Xbox"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/sekiro/preview.jpg",
+        "gameplay": "/assets/games/sekiro/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
+    },
+     {
+      "id": "phantom-blade-zero",
+      "name": "Phantom Blade Zero",
+      "releaseYear": 2026,
+      "developer": "S-GAME Studio",
+      "publisher": "S-GAME Publishing",
+      "genre": [
+        "action RPG"
+      ],
+      "platform": [
+        "PC",
+        "PlayStation"
+      ],
+      "difficulty": 1,
+      "images": {
+        "preview": "/assets/games/phantom-blade-zero/preview.jpg",
+        "gameplay": "/assets/games/phantom-blade-zero/gameplay.jpg"
+      },
+      "audio": null,
+      "funFacts": []
     }
   ]
 }
