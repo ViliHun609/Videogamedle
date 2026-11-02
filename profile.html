@@ -7,16 +7,38 @@
     <link rel="stylesheet" href="input.css" />
     <link rel="shortcut icon" href="./images/logo/logo.png" type="image/x-icon">
 </head>
-<body class="h-screen flex flex-col">
+<body class="min-h-screen h-fit flex flex-col">
 <script src="./scripts/shared_background_chooser.js"></script>
 
-<header>
+<header class="shrink-0">
+    <nav class="w-full z-20 ink-wash">
+        <div class="max-w-screen grid grid-cols-3 items-center mx-auto p-2">
 
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="./images/logo/logo.png" class="h-7" alt="Videogamedle Logo" />
+                <span class="self-center text-xl text-heading font-semibold whitespace-nowrap portal_like">Videogamedle</span>
+            </a>
+
+            <div class="justify-self-center hidden w-full md:flex md:w-auto justify-center" id="navbar-user">
+                <a href="./index.html" class="text-center align-center flex" id="homepage_link">
+                    <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                      <line x1="21" y1="12" x2="9" y2="12"></line>
+                      <polyline points="14 17 9 12 14 7"></polyline>
+                    </svg>
+                    <b>back to homepage</b>
+     
+                </a>
+            </div>
+            
+
+            
+        </div>
+    </nav>
 </header>
 
-<main class="w-full flex flex-col flex-1 min-h-0 text-center p-16">
+<main class="w-full flex flex-col flex-1 min-h-0 text-center px-16 py-4">
 
-    <div class="flex h-screen w-full gap-8">
+    <div class="flex h-fit w-full gap-8">
 
         <section class="flex flex-col w-3/12 gap-4 h-full p-4 pb-8 items-center justify-between text-center mt-12 rounded-2xl ink-wash">
 
@@ -37,13 +59,13 @@
         </section>
 
 
-        <section class="w-9/12 p-4 flex flex-col min-h-0 mt-6">
-            <h1 class="text-6xl font-secondary">koneszka-31</h1>
-            <h2 class="text-lg font-secondary">join date - 2026.08.07.</h2>
+        <section class="w-9/12 p-4 flex flex-col min-h-0 mt-2">
+            <h1 class="text-6xl font-secondary text-left">koneszka-31</h1>
+            <h2 class="text-lg font-secondary text-left">join date - 2026.08.07.</h2>
 
             <div class="flex-1 min-h-0 justify-center p-12 rounded-2xl mt-6 ink-wash">
                 <div class="grid grid-cols-2 gap-12">
-                    <div class="border-2 h-24">
+                    <div class="border-2 h-24 rounded-2xl align-center">
                         <span>Games played</span>
                     </div>
 
