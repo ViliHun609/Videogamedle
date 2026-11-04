@@ -77,7 +77,7 @@
     <div class="align-center m-auto w-4/12 overflow-hidden aspect-video rounded-md ink-wash border-4 relative" id="gamepic">
         <div class="absolute inset-0 z-10 ink-wash p-2 rounded-full mr-auto mt-2 ml-2 h-fit w-fit" id="zoom"></div>
         <div class="overflow-hidden">
-            <img src="./assets/games/beamng-drive/gameplay.jpg" alt="" id="game-img" class="aspect-video select-none">
+            <img src="" alt="" id="game-img" class="aspect-video select-none">
         </div>
     </div>
 
@@ -146,12 +146,17 @@ let selectedGame = ``
 let guesses = 0;
 
 let allGames = []; // for testsearch()
+let guesserList = [];
 // LOADGAMES() !!!!!!!!
 async function loadGames() {
   const response = await fetch('./JSON/games.json');
   const data = await response.json();
 
   allGames = data.games
+  guesserList = [...allGames] // claude assisted
+  console.log(allGames)
+  console.log(guesserList)
+
 
   const selectedIndex = await getRandomIndexDaily(data);
   //const selectedGame = data.games[selectedIndex];
@@ -206,38 +211,16 @@ const searchFilter = document.querySelector("#searchFilter")
 
 let results = []; // so it can be used in handleKeys() too
 
-// function testsearch() {
-//     //searchFilter.innerText = searchbar.value
-//     let search = searchbar.value.toLowerCase()
-//     results = [];  
-
-//     for (let i = 0; i < allGames.length; i++) {
-//       let name = allGames[i].name.toLowerCase();
-
-//       if (name.includes(search)) {
-//         results.push(allGames[i]);
-//       }
-//     }
-    
-//     // problem: cant search for RE1R
-//     // problem: cant search for RE1R
-//     // problem: cant search for RE1R
-//     console.log(results)
-//     //searchFilter.innerText = results[0].name
-
-//     displayGamesFilter(results)
-// }
-
 function testsearch() {
     let search = searchbar.value.toLowerCase()
     let filterNames = []
     results = []
 
-    for (let i = 0; i < allGames.length; i++) {
-      let name = allGames[i].name.toLowerCase();
+    for (let i = 0; i < guesserList.length; i++) {
+      let name = guesserList[i].name.toLowerCase();
 
       if (name.includes(search)) {
-        filterNames.push(allGames[i].name);
+        filterNames.push(guesserList[i].name);
       }
     }
 
@@ -245,9 +228,9 @@ function testsearch() {
 
     
     for(let i = 0; i < filterNames.length ; i++) {
-        for(let j = 0; j < allGames.length; j++) {
-            if(allGames[j].name === filterNames[i]) {
-                results.push(allGames[j])
+        for(let j = 0; j < guesserList.length; j++) {
+            if(guesserList[j].name === filterNames[i]) {
+                results.push(guesserList[j])
             }
         }
     }
@@ -262,14 +245,35 @@ function handleKeys(e) {
   if (e.key === "Enter") {
     e.preventDefault();
     guessCurrentGame(results[0])
+    deleteCurrentGuess(results[0])
   } else if(e.key === "Escape") {
     searchbar.value = ""
     document.activeElement.blur()
     //hideSearchFilter()
   }
   console.log(e.key)
+  
+}
 
+function deleteCurrentGuess(guessedGame) {
 
+        console.log(results)
+        for(let j = 0; j < guesserList.length; j++) {
+            //console.log(guessedGame.id)
+            if(guessedGame.id === guesserList[j].id) {
+                console.log(guesserList)
+                //console.log(guesserList[j].id)
+                guesserList.splice(j, 1)
+                results.splice(0, 1)
+                console.log(guesserList)
+                displayGamesFilter(results)
+            }
+        }
+
+        console.log(allGames)
+        
+
+    // console.log(guesserList)
 }
 
 let win = 0
@@ -389,7 +393,7 @@ function lockGame() {
 
 //  zoom in on image and zoom display
 const img = document.querySelector("#game-img");
-const currentWidth = img.clientWidth;
+//const currentWidth = img.clientWidth;
 //let guesses = 0;
 
 
