@@ -328,3 +328,21 @@ a {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+
+
+#devButton {
+  transition: all .1s cubic-bezier(0.4, 0, 0.2, 1);
+  border: transparent solid 4px;
+}
+
+#devButton:active {
+  transform: scale(0.95);
+  border: #8a8b8b solid 4px;
+  background-color: red;
+}
+
+img {
+  -webkit-user-drag: none;
+  pointer-events: none;
+  user-select: none;
+}

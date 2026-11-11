@@ -10,6 +10,7 @@
 </head>
 <body class="h-screen flex flex-col">
     <script src="./scripts/shared_background_chooser.js"></script>
+    <script src="./scripts/playedGamesStorage.js" defer></script>
 
 <header class="shrink-0">
     <nav class="w-full z-20 ink-wash">
@@ -67,9 +68,9 @@
 
     <div class="w-4/12">
 
-      <div class="grid grid-flow-col grid-rows-4 gap-10">
+      <div class="grid grid-flow-col grid-rows-4 gap-10" id="gamecategory">
 
-          <a href="./gametipp.html" class="flex p-2 rounded-md items-center justify-between type-card ink-wash hover">
+          <!-- <a href="./gametipp.html" class="flex p-2 rounded-md items-center justify-between type-card ink-wash hover">
           <img src="./images/categories/game.png" alt="" class="w-20 aspect-square flex-initial rounded-md">
 
           <div class="ml-4 flex-1 text-left text-lg font-secondary">
@@ -97,7 +98,7 @@
                 <path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
               </svg>
           </div>
-          </a>
+          </a> -->
 
 
 
@@ -107,6 +108,10 @@
       </div>
     </div>
   </div>
+
+      <button type="button" class="p-4 m-auto bg-red-500/40 rounded-2xl" onclick="localStorage.clear(); window.location.reload()" id="devButton">
+        <h1>Reset localStorage</h1>
+    </button>
 
 </main>
 
@@ -121,5 +126,80 @@
 </footer>
 
 </body>
+
+<script>
+    const gameCategoryDiv = document.querySelector("#gamecategory")
+    
+    //localStorage.setItem("playedGamedle", false)
+    let playedGamedle = localStorage.getItem("playedGamedle") === 'true';
+    console.log(playedGamedle)
+
+    function printGamedle() {
+            gameCategoryDiv.innerHTML += `
+          <a href="./gametipp.html" class="flex p-2 rounded-md items-center justify-between type-card ink-wash hover">
+          <img src="./images/categories/game.png" alt="" class="w-20 aspect-square flex-initial rounded-md">
+
+          <div class="ml-4 flex-1 text-left text-lg font-secondary">
+            <h3 class="w-fit inline pr-4 uppercase font-anton text-2xl tracking-wider">Gamedle</h3>
+            ${playedGamedle ? '<span class="text-xs font-medium px-1.5 py-0.5 rounded played">played</span> <br>' : '<span class="text-xs font-medium px-1.5 py-0.5 rounded not-played">not played</span> <br>'}
+            <span class="text-sm">Guess the game with some help and choose the difficulty you would like to play in</span>
+          </div>
+          <div class="pr-8 pl-4 shrink-0">
+              <svg class="w-6 h-6 shrink-0 button-icon-arrow-v2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+              </svg>
+          </div>
+          </a>
+            `
+    }
+
+    // Source - https://stackoverflow.com/a/3263222
+    // Posted by Christian C. Salvadó, modified by community. See post 'Timeline' for change history
+    // Retrieved 2026-11-11, License - CC BY-SA 4.0
+    // var value = "true";
+    // console.log(JSON.parse(value) === true); // true
+    // https://javascript.plainenglish.io/storing-different-datatypes-in-localstorage-in-js-ee7f4c5318ff
+    // Source - https://stackoverflow.com/a/36978445
+    // Posted by tyttoot, modified by community. See post 'Timeline' for change history
+    // Retrieved 2026-11-11, License - CC BY-SA 4.0
+    // function tytPreGetBool(pre) {
+    //     return localStorage.getItem(pre) === 'true';
+    // }
+
+    //let playedPictureGame = Boolean(localStorage.getItem("playedPictureGame"))
+    //console.log(typeof playedPictureGame)
+    
+    //localStorage.setItem("playedPictureGame", false)
+    let playedPictureGame = localStorage.getItem("playedPictureGame") === 'true';
+    console.log(playedPictureGame)
+
+    function printPictureGame() {
+
+            gameCategoryDiv.innerHTML += `
+        <a href="./picturegame.html" class="flex p-2 rounded-md items-center justify-between type-card ink-wash hover">
+          <img src="./images/categories/picture.png" alt="" class="w-20 aspect-square flex-initial rounded-md">
+
+          <div class="ml-4 flex-1 text-left text-lg font-secondary">
+            <h3 class="w-fit inline pr-4 uppercase font-anton text-2xl tracking-wider">Picture</h3>
+            ${playedPictureGame ? '<span class="text-xs font-medium px-1.5 py-0.5 rounded played">played</span> <br>' : '<span class="text-xs font-medium px-1.5 py-0.5 rounded not-played">not played</span> <br>'}
+            <span class="text-sm tracking-tight ">Guess the game based on the zoomed in image of its gameplay</span>
+          </div>
+          <div class="pr-8 shrink-0">
+              <svg class="w-6 h-6 shrink-0 button-icon-arrow-v2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path fill="currentColor" d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/>
+              </svg>
+          </div>
+          </a>
+            `
+        
+    }
+
+//          <span class="text-xs font-medium px-1.5 py-0.5 rounded played">played</span> <br>
+//          <span class="text-xs font-medium px-1.5 py-0.5 rounded not-played">not played</span> <br>
+
+
+printGamedle()
+printPictureGame()
+</script>
 
 </html>

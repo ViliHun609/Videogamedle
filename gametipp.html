@@ -17,6 +17,7 @@
 </head>
 <body class="h-full w-full flex flex-col">
 <script src="./scripts/shared_background_chooser.js"></script>
+<script src="./scripts/playedGamesStorage.js" defer></script>
 
 <header class="shrink-0">
     <nav class="w-full z-20 ink-wash">
@@ -412,6 +413,11 @@
         resultMessage.classList.remove('hidden');
         autocompleteList.classList.add('hidden');
         guessInput.parentElement.classList.add('hidden');
+
+
+        localStorage.setItem("playedGamedle", true)
+        localStorage.setItem("lastDatePlayed", currentDate) 
+
         return;
       }
 

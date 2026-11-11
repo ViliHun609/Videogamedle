@@ -12,6 +12,7 @@
 </head>
 <body class="min-h-screen h-fit flex flex-col">
     <script src="./scripts/shared_background_chooser.js"></script>
+    <script src="./scripts/playedGamesStorage.js"></script>
 
 <header class="shrink-0">
     <nav class="w-full z-20 ink-wash mb-4">
@@ -288,9 +289,17 @@ function guessCurrentGame(guessedGame) {
         guess()
         winnnerOverlay()
 
+        localStorage.setItem("playedPictureGame", true)
+
+        localStorage.setItem("lastDatePlayed", currentDate) 
+        //console.log(lastDatePlayed)
+
     } else {
         guessedState.innerText = "Wrong"
         guess()
+
+        localStorage.setItem("playedPictureGame", false)
+    
     }
 }
 
