@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="input.css" />
   <link rel="shortcut icon" href="./images/logo/logo.png" type="image/x-icon">
 </head>
-<body class="h-screen flex flex-col">
+<body class="min-h-screen h-fit flex flex-col">
     <script src="./scripts/shared_background_chooser.js"></script>
     <script src="./scripts/playedGamesStorage.js" defer></script>
 
@@ -24,7 +24,7 @@
             <div class="justify-self-center hidden w-full md:flex md:w-auto justify-center" id="navbar-user">
                 <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
                     <li>
-                        <a href="#" class="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">How to Play?</a>
+                        <a href="./howtoplay.html" class="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">How to Play?</a>
                     </li>
                     <li>
                         
@@ -59,7 +59,7 @@
 
 </header>
 
-<main class="w-screen text-center h-screen mt-8">
+<main class="w-full text-center h-fit mt-8">
 
   <h1 class="pb-2 text-5xl uppercase portal_like">Videogamedle</h1>
   <h2 class="pb-20">Test your knowledge of Video games</h2>
@@ -68,7 +68,7 @@
 
     <div class="w-4/12">
 
-      <div class="grid grid-flow-col grid-rows-4 gap-10" id="gamecategory">
+      <div class="grid grid-flow-row gap-10 mb-12" id="gamecategory">
 
           <!-- <a href="./gametipp.html" class="flex p-2 rounded-md items-center justify-between type-card ink-wash hover">
           <img src="./images/categories/game.png" alt="" class="w-20 aspect-square flex-initial rounded-md">
