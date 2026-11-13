@@ -1212,14 +1212,14 @@
       "funFacts": []
     },
     {
-      "id": "hotline-miami",
-      "name": "Hotline Miami",
-      "releaseYear": 2012,
-      "developer": "Dennaton Games",
-      "publisher": "Devolver Digital",
+      "id": "mirrors-edge",
+      "name": "Mirror's edge",
+      "releaseYear": 2008,
+      "developer": "EA DICE",
+      "publisher": "EA",
       "genre": [
-        "Top-down Shooter",
-        "Action"
+        "Parkour",
+        "Action-Adventure"
       ],
       "platform": [
         "PC",
@@ -1228,31 +1228,31 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/hotline-miami/preview.jpg",
-        "gameplay": "/assets/games/hotline-miami/gameplay.jpg"
+        "preview": "/assets/games/mirrors-edge/preview.jpg",
+        "gameplay": "/assets/games/mirrors-edge/gameplay.jpg"
       },
       "audio": null,
       "funFacts": []
     },
     {
-      "id": "hotline-miami-2",
-      "name": "Hotline Miami 2",
-      "releaseYear": 2016,
-      "developer": "Dennaton Games",
-      "publisher": "Devolver Digital",
+      "id": "helldivers-2",
+      "name": "Helldivers 2",
+      "releaseYear": 2024,
+      "developer": "Arrowhead Game Studios",
+      "publisher": "Sony Interactive Entertainment",
       "genre": [
-        "Top-down Shooter",
-        "Action"
+        "Co-op",
+        "PvE"
       ],
       "platform": [
         "PC",
         "PlayStation",
         "Xbox"
       ],
-      "difficulty": 3,
+      "difficulty": 1,
       "images": {
-        "preview": "/assets/games/hotline-miami-2/preview.jpg",
-        "gameplay": "/assets/games/hotline-miami-2/gameplay.jpg"
+        "preview": "/assets/games/helldivers-2/preview.jpg",
+        "gameplay": "/assets/games/helldivers-2/gameplay.jpg"
       },
       "audio": null,
       "funFacts": []
