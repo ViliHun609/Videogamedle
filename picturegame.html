@@ -9,6 +9,7 @@
   <link rel="shortcut icon" href="./images/logo/logo.png" type="image/x-icon">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
 </head>
 <body class="min-h-screen h-fit flex flex-col">
     <script src="./scripts/shared_background_chooser.js"></script>
@@ -57,6 +58,10 @@
         <!-- winner card here -->
     </div>
 
+    <div class="fixed inset-0 z-20 flex justify-center ink-wash-minimal hidden" id="loserDiv">
+        <!-- loser card here -->
+    </div>
+
     <!-- <div class=" absolute w-1/6 h-full flex flex-col justify-center p-4">
         <div class="ink-wash h-fit flex flex-col rounded-xl">
                 <b>how to play</b>
@@ -76,25 +81,36 @@
     </div>
 
     <div class="align-center m-auto w-4/12 overflow-hidden aspect-video rounded-md ink-wash border-4 relative" id="gamepic">
-        <div class="absolute inset-0 z-10 ink-wash p-2 rounded-full mr-auto mt-2 ml-2 h-fit w-fit" id="zoom"></div>
+        <div class="absolute inset-0 z-10 ink-wash p-2 rounded-full mr-auto mt-2 ml-2 h-fit w-fit font-secondary text-sm" id="zoom"></div>
         <div class="overflow-hidden">
             <img src="" alt="" id="game-img" class="aspect-video select-none">
         </div>
     </div>
 
-    <div class="ink-wash h-fit min-h-8 text-center w-1/12 mx-auto rounded-2xl p-4 flex flex-col-2 gap-2 justify-center text-nowrap w-fit min-w-8">
-        <b id="test-counter">Guesses: 0</b>
-        <span id="guessedState"></span>
+    <div id="guess-bars" class="w-4/12 m-auto gap-2 flex">
+      <span class="guessBar"></span>
+      <span class="guessBar"></span>
+      <span class="guessBar"></span>
+      <span class="guessBar"></span>
+      <span class="guessBar"></span>
     </div>
 
+
+    <!-- <div class="ink-wash h-fit min-h-8 text-center w-1/12 mx-auto rounded-2xl p-4 flex flex-col-2 gap-2 justify-center text-nowrap w-fit min-w-8">
+        <b id="test-counter">Guesses: 0</b>
+        <span id="guessedState"></span>
+    </div> -->
+
     <div class="">
-            <div id="searchFilter" class="flex flex-col-reverse gap-1 w-1/4 mx-auto mb-2 p-4 h-[250px]">
-            <!-- Seached games go here  -->
-            </div>
 
         <div id="searchbar-div" class="">
-            <input type="text" class="w-1/4 ink-wash h-12 m-auto rounded-md p-4" id="searchbar" placeholder="Enter a game's name you see on on the picture">
+            <input type="text" class="w-1/4 ink-wash h-12 m-auto rounded-xl p-4" id="searchbar" placeholder="Enter a game's name you see on on the picture">
         </div>
+
+        <div id="searchFilter" class="flex flex-col gap-1 w-1/4 mx-auto mb-2 p-4 h-fit">
+        <!-- Seached games go here  -->
+        </div>
+            
     </div>
   </div>
 
@@ -102,10 +118,11 @@
 
 <footer class="py-4 text-center text-xs w-full flex items-center justify-center h-fit mt-auto">
 <p class="text-sm tracking-wide w-fit border-2 rounded-md h-fit content-center p-4 ink-wash portal_like_animation" style="border: 1px solid var(--portal-orange);">
+    
     Take a look at the project on GitHub
+    
 	<a class="underline font-bold" href="https://github.com/ViliHun609/Videogamedle" target="_blank">
-	here
-	<svg class="footer-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 14v4.833A1.166 1.166 0 0 1 16.833 20H5.167A1.167 1.167 0 0 1 4 18.833V7.167A1.166 1.166 0 0 1 5.167 6h4.618m4.447-2H20v5.768m-7.889 2.121 7.778-7.778"/></svg>
+	<i class="bi bi-github">here</i>
 	</a>
 </p>
 </footer>
@@ -145,6 +162,7 @@ function imageExists(url) {
 
 let selectedGame = ``
 let guesses = 0;
+let maxGuesses = 5;
 
 let allGames = []; // for testsearch()
 let guesserList = [];
@@ -277,29 +295,39 @@ function deleteCurrentGuess(guessedGame) {
     // console.log(guesserList)
 }
 
-let win = 0
-const guessedState = document.querySelector("#guessedState")
+let win = 0;
+let lost = 0;
+//const guessedState = document.querySelector("#guessedState")
 function guessCurrentGame(guessedGame) {
     //console.log(guessedGame.id)
     //console.log(selectedGame.id)
 
     if(guessedGame.id === selectedGame.id) {
-        guessedState.innerText = "You've won!"
+        //guessedState.innerText = "You've won!"
         win = 1
         guess()
-        winnnerOverlay()
+        winnerOverlay()
+
+        changeGuessBars(win)
 
         localStorage.setItem("playedPictureGame", true)
 
         localStorage.setItem("lastDatePlayed", currentDate) 
         //console.log(lastDatePlayed)
+        return;
 
     } else {
-        guessedState.innerText = "Wrong"
+        //guessedState.innerText = "Wrong"
         guess()
+        changeGuessBars()
 
         localStorage.setItem("playedPictureGame", false)
-    
+    }
+
+    if(guesses >= maxGuesses) {
+        lost = 1;
+        lockGame()
+        loserOverlay()
     }
 }
 
@@ -352,22 +380,34 @@ function displayGamesFilter(games) {
 
 // 2026.10.21 -- new winner overlay -------------
 const winnerDiv = document.querySelector("#winnerDiv")
+let type = ""
 
-function winnnerOverlay() {
+function winnerOverlay() {
+    type = winnerDiv
     searchbar.value = ""
-    lockGame()
+    //lockGame()
     winnerDiv.classList.remove("hidden")
 
     winnerDiv.innerHTML = 
     `
-        <div class="w-[25%] h-fit m-auto flex flex-col p-12 rounded-3xl gap-8 ink-wash" id="winner-card">
-            <b class="text-xl">You guessed correctly, the game was <br> ${selectedGame.name}</b>
-            <div class="">
-                <img src="${selectedGame.images.gameplay}" alt="gameplay picture of ${selectedGame}" class="w-full h-fit rounded-3xl">
+        <div class="w-[25%] h-fit m-auto flex flex-col p-8 rounded-3xl gap-6 ink-wash" id="winner-card">
+            <b class="text-xl">You guessed correctly</b>
+
+            <div class="relative w-full overflow-hidden rounded-3xl">
+                <img src="${selectedGame.images.gameplay}" alt="gameplay picture of ${selectedGame.name}" class="w-full h-fit">
+                <div class="absolute w-full bottom-0 ink-wash px-4 py-3">
+                    <span class="block text-xs uppercase tracking-wider opacity-70">The game was</span>
+                    <b class="block text-lg font-secondary">${selectedGame.name}</b>
+                </div>
             </div>
-            <span class="-mt-6">
-                you got it in ${guesses} guess(es)
-            </span>
+
+            <div class="-mt-2 flex items-center justify-center gap-2">
+                <span class="text-[10px] uppercase tracking-[0.2em] opacity-80">You got it in</span>
+                <span class="ink-wash inline-flex items-baseline gap-2 rounded-full px-4 py-2">
+                    <b class="text-xl leading-none">${guesses}</b>
+                    <span class="text-[8px] uppercase tracking-wider opacity-70">${guesses === 1 ? "guess" : "guesses"}</span>
+                </span>
+            </div>
 
             <div class="w-full mt-auto flex justify-center p-4 text-center">
                 <a class="w-fit h-12 rounded-tl-xl rounded-bl-xl flex items-center justify-center overlayBtnLeft p-4" href="./index.html">Homepage</a>
@@ -381,9 +421,40 @@ function winnnerOverlay() {
 }
 
 function hideOverlay() {
-    winnerDiv.innerHTML = ""
-    winnerDiv.classList.add("hidden")
+    type.innerHTML = ""
+    type.classList.add("hidden")
     //guessedState.innerText = "Game is locked"
+}
+
+const loserDiv = document.querySelector("#loserDiv")
+
+function loserOverlay() {
+    type = loserDiv
+    searchbar.value = ""
+    //lockGame()
+    loserDiv.classList.remove("hidden")
+
+    loserDiv.innerHTML = 
+    `
+        <div class="w-[25%] h-fit m-auto flex flex-col p-8 rounded-3xl gap-6 ink-wash" id="loser-card">
+            <b class="text-xl">You have lost</b>
+
+            <div class="relative w-full overflow-hidden rounded-3xl">
+                <img src="${selectedGame.images.gameplay}" alt="gameplay picture of ${selectedGame.name}" class="w-full h-fit">
+                <div class="absolute w-full bottom-0 ink-wash px-4 py-3">
+                    <span class="block text-xs uppercase tracking-wider opacity-70">The game was</span>
+                    <b class="block text-lg font-secondary">${selectedGame.name}</b>
+                </div>
+            </div>
+
+            <div class="w-full mt-auto flex justify-center p-4 text-center">
+                <a class="w-fit h-12 rounded-tl-xl rounded-bl-xl flex items-center justify-center overlayBtnLeft p-4" href="./index.html">Homepage</a>
+                <button class="w-fit h-12 rounded-tr-xl rounded-br-xl flex items-center justify-center overlayBtnRight p-4" id="hideOverlayBtn">Hide overlay</button>
+            </div>
+        </div>
+    `
+    const hideOverlayBtn = document.querySelector("#hideOverlayBtn")
+    hideOverlayBtn.addEventListener("click", hideOverlay)
 }
 
 // freeze the state of game NEEDED
@@ -408,11 +479,12 @@ const img = document.querySelector("#game-img");
 
 const steps = [10, 8, 6, 4, 2, 1];
 const zoom = document.querySelector("#zoom")
-const counter = document.querySelector("#test-counter") 
+//const counter = document.querySelector("#test-counter") 
 
+
+img.style.transformOrigin = `${random(15, 85)}% ${random(15, 85)}%`;
 img.style.transform = `scale(${steps[guesses]})`;
 zoom.innerHTML = `${steps[guesses]}X Zoom`
-//
 
 //console.log(counter)
 
@@ -424,21 +496,36 @@ function guess() {
         guesses++
         zoom.innerHTML = `${steps.at(-1)}X Zoom`
         img.style.transform = `scale(${steps.at(-1)})`;
-        //ícounter.innerHTML = guesses
-        counter.innerHTML = `Guesses: ${guesses}`
+        //counter.innerHTML = guesses
+        //counter.innerHTML = `Guesses: ${guesses}`
     } else if(guesses + 2 > steps.length) {
         guesses++
-        counter.innerHTML = `Guesses: ${guesses}`
+        //counter.innerHTML = `Guesses: ${guesses}`
     }
     else {
         guesses++
         zoom.innerHTML = `${steps[guesses]}X Zoom`
         img.style.transform = `scale(${steps[guesses]})`;
-        counter.innerHTML = `Guesses: ${guesses}`
+        //counter.innerHTML = `Guesses: ${guesses}`
     }
 }
 
+// guessbars
 
+const guessBars = document.querySelectorAll(".guessBar")
+console.log(guessBars)
+
+function changeGuessBars(win) {
+    if(win === 1) {
+        guessBars[guesses-1].classList.add("win")
+        return
+    }
+
+    guessBars[guesses-1].classList.add("wrong")
+
+
+
+}
 
 
 
