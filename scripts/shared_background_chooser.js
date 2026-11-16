@@ -27,4 +27,4 @@ let seed = fulldate % TOTAL_IMAGES
 
 
 // set image based on number 
-document.documentElement.style.setProperty('--bg-image', `url("/assets/background/${seed}.jpg`)
+document.documentElement.style.setProperty('--bg-image', `url("/assets/background/${seed}.jpg")`)
