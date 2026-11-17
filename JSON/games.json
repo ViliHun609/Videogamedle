@@ -17,8 +17,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/rainbow-six-siege/preview.jpg",
-        "gameplay": "/assets/games/rainbow-six-siege/gameplay.jpg"
+        "preview": "/assets/games/rainbow-six-siege/preview.webp",
+        "gameplay": "/assets/games/rainbow-six-siege/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -40,8 +40,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/satisfactory/preview.jpg",
-        "gameplay": "/assets/games/satisfactory/gameplay.jpg"
+        "preview": "/assets/games/satisfactory/preview.webp",
+        "gameplay": "/assets/games/satisfactory/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -60,8 +60,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/euro-truck-simulator-2/preview.jpg",
-        "gameplay": "/assets/games/euro-truck-simulator-2/gameplay.jpg"
+        "preview": "/assets/games/euro-truck-simulator-2/preview.webp",
+        "gameplay": "/assets/games/euro-truck-simulator-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -82,8 +82,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/beamng-drive/preview.jpg",
-        "gameplay": "/assets/games/beamng-drive/gameplay.jpg"
+        "preview": "/assets/games/beamng-drive/preview.webp",
+        "gameplay": "/assets/games/beamng-drive/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -107,8 +107,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/terraria/preview.jpg",
-        "gameplay": "/assets/games/terraria/gameplay.jpg"
+        "preview": "/assets/games/terraria/preview.webp",
+        "gameplay": "/assets/games/terraria/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -128,8 +128,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/counter-strike-2/preview.jpg",
-        "gameplay": "/assets/games/counter-strike-2/gameplay.jpg"
+        "preview": "/assets/games/counter-strike-2/preview.webp",
+        "gameplay": "/assets/games/counter-strike-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -153,8 +153,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/resident-evil-4-remake/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-4-remake/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-4-remake/preview.webp",
+        "gameplay": "/assets/games/resident-evil-4-remake/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -174,8 +174,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/sons-of-the-forest/preview.jpg",
-        "gameplay": "/assets/games/sons-of-the-forest/gameplay.jpg"
+        "preview": "/assets/games/sons-of-the-forest/preview.webp",
+        "gameplay": "/assets/games/sons-of-the-forest/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -197,8 +197,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/resident-evil-requiem/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-requiem/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-requiem/preview.webp",
+        "gameplay": "/assets/games/resident-evil-requiem/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -221,8 +221,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/resident-evil-2-remake/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-2-remake/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-2-remake/preview.webp",
+        "gameplay": "/assets/games/resident-evil-2-remake/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -244,8 +244,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/war-thunder/preview.jpg",
-        "gameplay": "/assets/games/war-thunder/gameplay.jpg"
+        "preview": "/assets/games/war-thunder/preview.webp",
+        "gameplay": "/assets/games/war-thunder/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -268,8 +268,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/onimusha-way-of-the-sword/preview.jpg",
-        "gameplay": "/assets/games/onimusha-way-of-the-sword/gameplay.jpg"
+        "preview": "/assets/games/onimusha-way-of-the-sword/preview.webp",
+        "gameplay": "/assets/games/onimusha-way-of-the-sword/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -289,8 +289,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/le-mans-ultimate/preview.jpg",
-        "gameplay": "/assets/games/le-mans-ultimate/gameplay.jpg"
+        "preview": "/assets/games/le-mans-ultimate/preview.webp",
+        "gameplay": "/assets/games/le-mans-ultimate/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -310,8 +310,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/peak/preview.jpg",
-        "gameplay": "/assets/games/peak/gameplay.jpg"
+        "preview": "/assets/games/peak/preview.webp",
+        "gameplay": "/assets/games/peak/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -333,8 +333,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/assetto-corsa/preview.jpg",
-        "gameplay": "/assets/games/assetto-corsa/gameplay.jpg"
+        "preview": "/assets/games/assetto-corsa/preview.webp",
+        "gameplay": "/assets/games/assetto-corsa/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -356,8 +356,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/resident-evil-village/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-village/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-village/preview.webp",
+        "gameplay": "/assets/games/resident-evil-village/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -379,8 +379,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/resident-evil-remake-hd/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-remake-hd/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-remake-hd/preview.webp",
+        "gameplay": "/assets/games/resident-evil-remake-hd/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -401,8 +401,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/tlou-part-2-remastered/preview.jpg",
-        "gameplay": "/assets/games/tlou-part-2-remastered/gameplay.jpg"
+        "preview": "/assets/games/tlou-part-2-remastered/preview.webp",
+        "gameplay": "/assets/games/tlou-part-2-remastered/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -425,8 +425,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/resident-evil-5/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-5/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-5/preview.webp",
+        "gameplay": "/assets/games/resident-evil-5/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -449,8 +449,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/resident-evil-revelations-2/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-revelations-2/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-revelations-2/preview.webp",
+        "gameplay": "/assets/games/resident-evil-revelations-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -473,8 +473,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/subnautica/preview.jpg",
-        "gameplay": "/assets/games/subnautica/gameplay.jpg"
+        "preview": "/assets/games/subnautica/preview.webp",
+        "gameplay": "/assets/games/subnautica/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -495,8 +495,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/subnautica-2/preview.jpg",
-        "gameplay": "/assets/games/subnautica-2/gameplay.jpg"
+        "preview": "/assets/games/subnautica-2/preview.webp",
+        "gameplay": "/assets/games/subnautica-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -519,8 +519,8 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/half-life-2/preview.jpg",
-        "gameplay": "/assets/games/half-life-2/gameplay.jpg"
+        "preview": "/assets/games/half-life-2/preview.webp",
+        "gameplay": "/assets/games/half-life-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -541,8 +541,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/tlou-part-1-remake/preview.jpg",
-        "gameplay": "/assets/games/tlou-part-1-remake/gameplay.jpg"
+        "preview": "/assets/games/tlou-part-1-remake/preview.webp",
+        "gameplay": "/assets/games/tlou-part-1-remake/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -562,8 +562,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/assetto-corsa-evo/preview.jpg",
-        "gameplay": "/assets/games/assetto-corsa-evo/gameplay.jpg"
+        "preview": "/assets/games/assetto-corsa-evo/preview.webp",
+        "gameplay": "/assets/games/assetto-corsa-evo/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -585,8 +585,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/portal/preview.jpg",
-        "gameplay": "/assets/games/portal/gameplay.jpg"
+        "preview": "/assets/games/portal/preview.webp",
+        "gameplay": "/assets/games/portal/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -609,8 +609,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/portal-2/preview.jpg",
-        "gameplay": "/assets/games/portal-2/gameplay.jpg"
+        "preview": "/assets/games/portal-2/preview.webp",
+        "gameplay": "/assets/games/portal-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -633,8 +633,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/resident-evil-4-og/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-4-og/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-4-og/preview.webp",
+        "gameplay": "/assets/games/resident-evil-4-og/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -657,8 +657,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/resident-evil-6/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-6/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-6/preview.webp",
+        "gameplay": "/assets/games/resident-evil-6/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -680,8 +680,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/resident-evil-zero-hd/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-zero-hd/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-zero-hd/preview.webp",
+        "gameplay": "/assets/games/resident-evil-zero-hd/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -704,8 +704,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/resident-evil-revelations/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-revelations/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-revelations/preview.webp",
+        "gameplay": "/assets/games/resident-evil-revelations/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -726,8 +726,8 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/resident-evil-3-og/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-3-og/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-3-og/preview.webp",
+        "gameplay": "/assets/games/resident-evil-3-og/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -750,8 +750,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/resident-evil-7/preview.jpg",
-        "gameplay": "/assets/games/resident-evil-7/gameplay.jpg"
+        "preview": "/assets/games/resident-evil-7/preview.webp",
+        "gameplay": "/assets/games/resident-evil-7/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -772,8 +772,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/the-forest/preview.jpg",
-        "gameplay": "/assets/games/the-forest/gameplay.jpg"
+        "preview": "/assets/games/the-forest/preview.webp",
+        "gameplay": "/assets/games/the-forest/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -794,8 +794,8 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/half-life/preview.jpg",
-        "gameplay": "/assets/games/half-life/gameplay.jpg"
+        "preview": "/assets/games/half-life/preview.webp",
+        "gameplay": "/assets/games/half-life/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -816,8 +816,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/god-of-war-2018/preview.jpg",
-        "gameplay": "/assets/games/god-of-war-2018/gameplay.jpg"
+        "preview": "/assets/games/god-of-war-2018/preview.webp",
+        "gameplay": "/assets/games/god-of-war-2018/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -840,8 +840,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/snowrunner/preview.jpg",
-        "gameplay": "/assets/games/snowrunner/gameplay.jpg"
+        "preview": "/assets/games/snowrunner/preview.webp",
+        "gameplay": "/assets/games/snowrunner/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -864,8 +864,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/farming-simulator-25/preview.jpg",
-        "gameplay": "/assets/games/farming-simulator-25/gameplay.jpg"
+        "preview": "/assets/games/farming-simulator-25/preview.webp",
+        "gameplay": "/assets/games/farming-simulator-25/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -888,8 +888,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/subnautica-below-zero/preview.jpg",
-        "gameplay": "/assets/games/subnautica-below-zero/gameplay.jpg"
+        "preview": "/assets/games/subnautica-below-zero/preview.webp",
+        "gameplay": "/assets/games/subnautica-below-zero/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -909,8 +909,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/garrys-mod/preview.jpg",
-        "gameplay": "/assets/games/garrys-mod/gameplay.jpg"
+        "preview": "/assets/games/garrys-mod/preview.webp",
+        "gameplay": "/assets/games/garrys-mod/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -931,8 +931,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/left-4-dead-2/preview.jpg",
-        "gameplay": "/assets/games/left-4-dead-2/gameplay.jpg"
+        "preview": "/assets/games/left-4-dead-2/preview.webp",
+        "gameplay": "/assets/games/left-4-dead-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -955,8 +955,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/dead-by-daylight/preview.jpg",
-        "gameplay": "/assets/games/dead-by-daylight/gameplay.jpg"
+        "preview": "/assets/games/dead-by-daylight/preview.webp",
+        "gameplay": "/assets/games/dead-by-daylight/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -978,8 +978,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/gta-5/preview.jpg",
-        "gameplay": "/assets/games/gta-5/gameplay.jpg"
+        "preview": "/assets/games/gta-5/preview.webp",
+        "gameplay": "/assets/games/gta-5/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1000,8 +1000,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/titanfall-2/preview.jpg",
-        "gameplay": "/assets/games/titanfall-2/gameplay.jpg"
+        "preview": "/assets/games/titanfall-2/preview.webp",
+        "gameplay": "/assets/games/titanfall-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1022,8 +1022,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/silent-hill-2-remake/preview.jpg",
-        "gameplay": "/assets/games/silent-hill-2-remake/gameplay.jpg"
+        "preview": "/assets/games/silent-hill-2-remake/preview.webp",
+        "gameplay": "/assets/games/silent-hill-2-remake/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1044,8 +1044,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/silent-hill-f/preview.jpg",
-        "gameplay": "/assets/games/silent-hill-f/gameplay.jpg"
+        "preview": "/assets/games/silent-hill-f/preview.webp",
+        "gameplay": "/assets/games/silent-hill-f/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1065,8 +1065,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/silent-hill-townfall/preview.jpg",
-        "gameplay": "/assets/games/silent-hill-townfall/gameplay.jpg"
+        "preview": "/assets/games/silent-hill-townfall/preview.webp",
+        "gameplay": "/assets/games/silent-hill-townfall/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1088,8 +1088,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/dying-light/preview.jpg",
-        "gameplay": "/assets/games/dying-light/gameplay.jpg"
+        "preview": "/assets/games/dying-light/preview.webp",
+        "gameplay": "/assets/games/dying-light/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1111,8 +1111,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/dying-light-2/preview.jpg",
-        "gameplay": "/assets/games/dying-light-2/gameplay.jpg"
+        "preview": "/assets/games/dying-light-2/preview.webp",
+        "gameplay": "/assets/games/dying-light-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1132,8 +1132,8 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/no-more-room-in-hell/preview.jpg",
-        "gameplay": "/assets/games/no-more-room-in-hell/gameplay.jpg"
+        "preview": "/assets/games/no-more-room-in-hell/preview.webp",
+        "gameplay": "/assets/games/no-more-room-in-hell/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1155,8 +1155,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/no-more-room-in-hell-2/preview.jpg",
-        "gameplay": "/assets/games/no-more-room-in-hell-2/gameplay.jpg"
+        "preview": "/assets/games/no-more-room-in-hell-2/preview.webp",
+        "gameplay": "/assets/games/no-more-room-in-hell-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1181,8 +1181,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/payday-2/preview.jpg",
-        "gameplay": "/assets/games/payday-2/gameplay.jpg"
+        "preview": "/assets/games/payday-2/preview.webp",
+        "gameplay": "/assets/games/payday-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1205,8 +1205,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/payday-3/preview.jpg",
-        "gameplay": "/assets/games/payday-3/gameplay.jpg"
+        "preview": "/assets/games/payday-3/preview.webp",
+        "gameplay": "/assets/games/payday-3/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1228,8 +1228,8 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/mirrors-edge/preview.jpg",
-        "gameplay": "/assets/games/mirrors-edge/gameplay.jpg"
+        "preview": "/assets/games/mirrors-edge/preview.webp",
+        "gameplay": "/assets/games/mirrors-edge/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1251,8 +1251,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/helldivers-2/preview.jpg",
-        "gameplay": "/assets/games/helldivers-2/gameplay.jpg"
+        "preview": "/assets/games/helldivers-2/preview.webp",
+        "gameplay": "/assets/games/helldivers-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1274,8 +1274,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/the-long-dark/preview.jpg",
-        "gameplay": "/assets/games/the-long-dark/gameplay.jpg"
+        "preview": "/assets/games/the-long-dark/preview.webp",
+        "gameplay": "/assets/games/the-long-dark/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1298,8 +1298,8 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/total-chaos/preview.jpg",
-        "gameplay": "/assets/games/total-chaos/gameplay.jpg"
+        "preview": "/assets/games/total-chaos/preview.webp",
+        "gameplay": "/assets/games/total-chaos/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1322,8 +1322,8 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/dead-as-disco/preview.jpg",
-        "gameplay": "/assets/games/dead-as-disco/gameplay.jpg"
+        "preview": "/assets/games/dead-as-disco/preview.webp",
+        "gameplay": "/assets/games/dead-as-disco/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1344,8 +1344,8 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/tormented-souls/preview.jpg",
-        "gameplay": "/assets/games/tormented-souls/gameplay.jpg"
+        "preview": "/assets/games/tormented-souls/preview.webp",
+        "gameplay": "/assets/games/tormented-souls/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1366,8 +1366,8 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/tormented-souls-2/preview.jpg",
-        "gameplay": "/assets/games/tormented-souls-2/gameplay.jpg"
+        "preview": "/assets/games/tormented-souls-2/preview.webp",
+        "gameplay": "/assets/games/tormented-souls-2/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1388,8 +1388,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/sekiro/preview.jpg",
-        "gameplay": "/assets/games/sekiro/gameplay.jpg"
+        "preview": "/assets/games/sekiro/preview.webp",
+        "gameplay": "/assets/games/sekiro/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1409,8 +1409,8 @@
       ],
       "difficulty": 1,
       "images": {
-        "preview": "/assets/games/phantom-blade-zero/preview.jpg",
-        "gameplay": "/assets/games/phantom-blade-zero/gameplay.jpg"
+        "preview": "/assets/games/phantom-blade-zero/preview.webp",
+        "gameplay": "/assets/games/phantom-blade-zero/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1430,8 +1430,8 @@
       ],
       "difficulty": 3,
       "images": {
-        "preview": "/assets/games/white-knuckle/preview.jpg",
-        "gameplay": "/assets/games/white-knuckle/gameplay.jpg"
+        "preview": "/assets/games/white-knuckle/preview.webp",
+        "gameplay": "/assets/games/white-knuckle/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
@@ -1451,8 +1451,8 @@
       ],
       "difficulty": 2,
       "images": {
-        "preview": "/assets/games/half-sword/preview.jpg",
-        "gameplay": "/assets/games/half-sword/gameplay.jpg"
+        "preview": "/assets/games/half-sword/preview.webp",
+        "gameplay": "/assets/games/half-sword/gameplay.webp"
       },
       "audio": null,
       "funFacts": []
