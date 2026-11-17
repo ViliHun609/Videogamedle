@@ -39,7 +39,7 @@
                 <button type="button" class="flex text-sm bg-neutral-primary rounded-full md:me-0 focus:ring-4 focus:ring-neutral-tertiary" id="user-menu-button" aria-expanded="false">
                     <span class="sr-only">Open user menu</span>
                     <a href="./profile.html">
-                        <img class="w-8 h-8 rounded-full" src="./assets/games/satisfactory/preview.jpg" alt="user photo">
+                        <img class="w-8 h-8 rounded-full" src="./assets/games/satisfactory/preview.webp" alt="user photo">
                     </a>
                 </button>
 
@@ -144,14 +144,25 @@ function random(min, max) {
 // Retrieved 2026-10-13, License - CC BY-SA 4.0
 
 // reformatted with those 2 sources
-function imageExists(url) {
-  return new Promise(resolve => {
-    const img = new Image();
-    img.onload = () => resolve(true);
-    img.onerror = () => resolve(false);
-    img.src = url;
-  });
+// function imageExists(url) {
+//   return new Promise(resolve => {
+//     const img = new Image();
+//     img.onload = () => resolve(true);
+//     img.onerror = () => resolve(false);
+//     img.src = url;
+//   });
+// }
+// https://attacomsian.com/blog/javascript-check-if-image-exists
+async function imageExists(url) {
+    try {
+        const res = await fetch(url, { method: 'HEAD' });
+        return res.ok;3
+    } catch {
+        return false;
+    }
 }
+
+
 // --------------------------------------------------
 
 // const testplace = document.getElementById("testplace")
@@ -185,7 +196,8 @@ async function loadGames() {
   //console.log(selectedGame)
   
   // get the games picture based on selected game
-  img.src = `./assets/games/${selectedGame.id}/gameplay.jpg`
+  //img.src = `./assets/games/${selectedGame.id}/gameplay.webp`
+  img.src = selectedGame.images.gameplay
   
   //console.log(selectedGame.images)
   
@@ -204,11 +216,11 @@ async function getRandomIndexDaily(data) {
     // let selectedIndex = fulldate % data.games.length
 
     const gameWImg = []
-    //const exists = await imageExists('./assets/the-forest/gameplay.jpg');
+    //const exists = await imageExists('./assets/the-forest/gameplay.webp');
     //console.log(exists);
     //console.log(data.games[40].images.gameplay.complete)
     for(let i = 0; i < data.games.length; i++) {
-        if(await imageExists(`./assets/games/${data.games[i].id}/gameplay.jpg`) == true) {
+        if(await imageExists(data.games[i].images.gameplay)) {
             gameWImg.push(i)
         }
     }
