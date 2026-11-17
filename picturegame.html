@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="input.css" />
   <link rel="shortcut icon" href="./images/logo/logo.png" type="image/x-icon">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  
+  <script src="./scripts/staticgameWImg.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
 </head>
 <body class="min-h-screen h-fit flex flex-col">
@@ -83,7 +84,7 @@
     <div class="align-center m-auto w-4/12 overflow-hidden aspect-video rounded-md ink-wash border-4 relative" id="gamepic">
         <div class="absolute inset-0 z-10 ink-wash p-2 rounded-full mr-auto mt-2 ml-2 h-fit w-fit font-secondary text-sm" id="zoom"></div>
         <div class="overflow-hidden">
-            <img src="" alt="" id="game-img" class="aspect-video select-none">
+            <img src="" alt="" id="game-img" class="aspect-video select-none" loading="lazy">
         </div>
     </div>
 
@@ -156,7 +157,7 @@ function random(min, max) {
 async function imageExists(url) {
     try {
         const res = await fetch(url, { method: 'HEAD' });
-        return res.ok;3
+        return res.ok;
     } catch {
         return false;
     }
@@ -188,9 +189,15 @@ async function loadGames() {
   console.log(guesserList)
 
 
-  const selectedIndex = await getRandomIndexDaily(data);
-  //const selectedGame = data.games[selectedIndex];
-  selectedGame = data.games[selectedIndex];
+  //const selectedIndex = await getRandomIndexDaily(data);
+//   const selectedIndex =  getRandomIndexNEW(allGames)
+//   console.log(selectedIndex)
+//   //const selectedGame = data.games[selectedIndex];
+//   selectedGame = data.games[selectedIndex];
+
+    selectedIndex = getRandomGameNEW(allGames) 
+    selectedGame = allGames[selectedIndex]
+
   
   //load getRandomDaily
   //console.log(selectedGame)
@@ -202,6 +209,27 @@ async function loadGames() {
   //console.log(selectedGame.images)
   
   return data
+}
+
+function getRandomGameNEW(allGames) {
+    games = allGames
+
+    let searchedList = []
+    for(let i = 0; i < games.length ; i++) {
+        for(let j = 0; j < gameWImg.length; j++) {
+            if(gameWImg[j] === games[i].id) {
+                searchedList.push(i)
+            }
+        }
+    }
+
+    const arrayIndex = random(0, searchedList.length-1)
+
+    console.log(searchedList)
+    //console.log(arrayIndex)
+    const selectedIndex = searchedList[arrayIndex]
+    //console.log(selectedIndex)
+    return selectedIndex
 }
 
 // get random game
@@ -224,9 +252,11 @@ async function getRandomIndexDaily(data) {
             gameWImg.push(i)
         }
     }
+
+
     const arrayIndex = random(0, gameWImg.length-1)
 
-    //console.log(gameWImg)
+    console.log(gameWImg)
     //console.log(arrayIndex)
     const selectedIndex = gameWImg[arrayIndex]
     //console.log(selectedIndex)
