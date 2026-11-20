@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Videogamedle</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="input.css" />
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link rel="stylesheet" href="output.css" />
   <link rel="shortcut icon" href="./images/logo/logo.png" type="image/x-icon">
 
   
@@ -110,6 +110,16 @@
 
         <div id="searchFilter" class="flex flex-col gap-1 w-1/4 mx-auto mb-2 p-4 h-fit">
         <!-- Seached games go here  -->
+        
+        <!-- <a href="" class="searchItem">
+            <div id="0" class="dropdown-item ink-wash flex items-center gap-3 px-4 py-2 rounded-xl element-hover hover-list-element">
+                    <img src="${game.images.preview}" alt="" class="w-12 h-12 rounded-lg">
+                    <h3 class="font-bold leading-none">${game.name}</h3>
+                    <span class="text-sm opacity-70 ml-auto pointer-events-none">${game.releaseYear}</span>
+            </div>
+        </a> -->
+
+         
         </div>
             
     </div>
@@ -129,6 +139,17 @@
 </footer>
 
 <script>
+
+const searchItems = document.querySelectorAll(".searchItem");
+
+searchItems.forEach(item => item.addEventListener("click", log)); // claude assisted
+
+function log(e) {
+    e.preventDefault();
+    console.log(e.target.id);
+}
+
+
 // get games
 
 
@@ -348,6 +369,7 @@ function guessCurrentGame(guessedGame) {
         //guessedState.innerText = "You've won!"
         win = 1
         guess()
+        lockGame()
         winnerOverlay()
 
         changeGuessBars(win)
@@ -380,7 +402,7 @@ function hideSearchFilter() {
 //
 searchbar.addEventListener("input", testsearch);
 searchbar.addEventListener("keydown", handleKeys);
-searchbar.addEventListener("blur", hideSearchFilter)
+//searchbar.addEventListener("blur", hideSearchFilter)
 searchbar.addEventListener("focus", testsearch)
 //searchFilter.addEventListener("click", test)
 
@@ -390,32 +412,66 @@ function test(e) {
 
 function displayGamesFilter(games) {
 
-     let filtered = "";
+    searchFilter.innerHTML = ""
+     //let filtered = "";
     for(let i = 0; i < games.length && i < 4; i++) {
         let game = games[i]
         let number = i + 1;
 
-        if(number == 1) {
-            filtered +=
-            `
-              <div id="test" class="dropdown-item ink-wash flex items-center gap-3 px-4 py-2 rounded-xl element-hover hover-list-element">
-                <img src="${game.images.preview}" alt="" class="w-12 h-12 rounded-lg">
-                <h3 class="font-bold leading-none">${game.name}</h3>
-                <span class="text-sm opacity-70 ml-auto">${game.releaseYear}</span>
-              </div>
-            `
-        } else {
-            filtered  +=
-            `
-              <div class="dropdown-item ink-wash flex items-center gap-3 px-4 py-2 rounded-xl element-hover hover-list-element">
-                <img src="${game.images.preview}" alt="" class="w-10 h-10 rounded-lg">
-                <h3 class="font-bold leading-none">${game.name}</h3>
-                <span class="text-sm opacity-70 ml-auto">${game.releaseYear}</span>
-              </div>
-            `
-        }
+        const gameChild = document.createElement("a")
+
+        gameChild.innerHTML = `
+            <div id="${i}" class="dropdown-item ink-wash flex items-center gap-3 px-4 py-2 rounded-xl element-hover hover-list-element ${i===0 ? "selectedWithKeyboard": "" }">
+                    <img src="${game.images.preview}" alt="" class="w-12 h-12 rounded-lg">
+                    <h3 class="font-bold leading-none pointer-events-none">${game.name}</h3>
+                    <span class="text-sm opacity-70 ml-auto pointer-events-none">${game.releaseYear}</span>
+            </div>
+        `
+
+        gameChild.classList.add("searchItem")
+        searchFilter.appendChild(gameChild)
+
+            const searchItems = document.querySelectorAll(".searchItem");
+
+
+        // if(number == 1) {
+        //     filtered +=
+        //     `
+        //       <div id="test" class="dropdown-item ink-wash flex items-center gap-3 px-4 py-2 rounded-xl element-hover hover-list-element">
+        //         <img src="${game.images.preview}" alt="" class="w-12 h-12 rounded-lg">
+        //         <h3 class="font-bold leading-none">${game.name}</h3>
+        //         <span class="text-sm opacity-70 ml-auto">${game.releaseYear}</span>
+        //       </div>
+        //     `
+        // } else {
+        //     filtered  +=
+        //     `
+        //       <div class="dropdown-item ink-wash flex items-center gap-3 px-4 py-2 rounded-xl element-hover hover-list-element">
+        //         <img src="${game.images.preview}" alt="" class="w-10 h-10 rounded-lg">
+        //         <h3 class="font-bold leading-none">${game.name}</h3>
+        //         <span class="text-sm opacity-70 ml-auto">${game.releaseYear}</span>
+        //       </div>
+        //     `
+        // }
     }
-        searchFilter.innerHTML = filtered;
+
+    const searchItems = document.querySelectorAll(".searchItem");
+
+    searchItems.forEach(item => item.addEventListener("click", log)); // claude assisted
+    function log(e) {
+        e.preventDefault();
+        console.log(e.target.id);
+    }
+
+    const guessWithMouse = (e) => {
+        e.preventDefault();
+        guessCurrentGame(results[e.target.id])
+        deleteCurrentGuess(results[e.target.id])
+    }
+    searchItems.forEach(item => item.addEventListener("click", guessWithMouse));
+    
+
+    //searchFilter.innerHTML = filtered;
 }
 
 // ------------------------------------------------------

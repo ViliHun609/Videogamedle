@@ -170,11 +170,17 @@ nav a:hover {
 
 .hover-list-element:hover {
   transform: translateY(-6%);
+  border: 1px solid var(--portal-blue);
 }
 
 .portal_like {
+  font-weight: bold;
   display: inline-block;
-  background: linear-gradient(to right, var(--portal-orange) 30%, var(--portal-blue) 55%);
+  background: linear-gradient(
+    to right in oklch,
+    var(--portal-orange) 30%,
+    var(--portal-blue) 55%
+  );
   background-clip: text;
   color: transparent;
   font-variant:normal;
@@ -382,4 +388,10 @@ img {
 /* winner overlay */
 #winner-card b {
   color: var(--bg-win);
+}
+
+
+.selectedWithKeyboard {
+  border: 2px solid var(--portal-orange);
+  background-color: #0b0d10;
 }
