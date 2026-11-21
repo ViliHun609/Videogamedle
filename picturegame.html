@@ -13,8 +13,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
 </head>
 <body class="min-h-screen h-fit flex flex-col">
-    <script src="./scripts/shared_background_chooser.js"></script>
-    <script src="./scripts/playedGamesStorage.js"></script>
+    <script src="./scripts/shared_background_chooser.js" defer></script>
+    <script src="./scripts/playedGamesStorage.js" defer></script>
 
 <header class="shrink-0">
     <nav class="w-full z-20 ink-wash mb-4">
@@ -580,8 +580,19 @@ const zoom = document.querySelector("#zoom")
 //const counter = document.querySelector("#test-counter") 
 
 
-img.style.transformOrigin = `${random(15, 85)}% ${random(15, 85)}%`;
+
 img.style.transform = `scale(${steps[guesses]})`;
+async function scaleRandomly() {
+    const x = random(15, 85);
+    const y = random(15, 85);
+    const scale = steps[guesses];
+
+    img.style.transformOrigin = `${x}% ${y}%`;
+    img.style.transform = `scale(${scale})`;
+}
+
+
+
 zoom.innerHTML = `${steps[guesses]}X Zoom`
 
 //console.log(counter)
@@ -625,10 +636,11 @@ function changeGuessBars(win) {
 
 }
 
-
-
-
-loadGames();
+async function startGame() {
+  await loadGames();
+  await scaleRandomly();
+}
+startGame();
 
 
 </script>
